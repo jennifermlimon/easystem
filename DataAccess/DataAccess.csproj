@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4C53FFB9-6CF4-4927-A81C-38575F661E6B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccess</RootNamespace>
+    <AssemblyName>DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\BuyTicket.cs" />
+    <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\SellTicket.cs" />
+    <Compile Include="Entities\Subcategory.cs" />
+    <Compile Include="Entities\Supplier.cs" />
+    <Compile Include="Entities\User.cs" />
+    <Compile Include="Migrations\201903152157050_UserAdded.cs" />
+    <Compile Include="Migrations\201903152157050_UserAdded.Designer.cs">
+      <DependentUpon>201903152157050_UserAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903152229425_SupplierData.cs" />
+    <Compile Include="Migrations\201903152229425_SupplierData.Designer.cs">
+      <DependentUpon>201903152229425_SupplierData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903152252060_ClientData.cs" />
+    <Compile Include="Migrations\201903152252060_ClientData.Designer.cs">
+      <DependentUpon>201903152252060_ClientData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903171736100_CategoryData.cs" />
+    <Compile Include="Migrations\201903171736100_CategoryData.Designer.cs">
+      <DependentUpon>201903171736100_CategoryData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903171800296_SubcategoriesData.cs" />
+    <Compile Include="Migrations\201903171800296_SubcategoriesData.Designer.cs">
+      <DependentUpon>201903171800296_SubcategoriesData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903171802137_ProductData.cs" />
+    <Compile Include="Migrations\201903171802137_ProductData.Designer.cs">
+      <DependentUpon>201903171802137_ProductData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903171803335_BuyTicketData.cs" />
+    <Compile Include="Migrations\201903171803335_BuyTicketData.Designer.cs">
+      <DependentUpon>201903171803335_BuyTicketData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903171813449_SellTicketData.cs" />
+    <Compile Include="Migrations\201903171813449_SellTicketData.Designer.cs">
+      <DependentUpon>201903171813449_SellTicketData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904121520459_MinLengthClient.cs" />
+    <Compile Include="Migrations\201904121520459_MinLengthClient.Designer.cs">
+      <DependentUpon>201904121520459_MinLengthClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904141351118_RegulateMinimunLengthNullablesFields.cs" />
+    <Compile Include="Migrations\201904141351118_RegulateMinimunLengthNullablesFields.Designer.cs">
+      <DependentUpon>201904141351118_RegulateMinimunLengthNullablesFields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905231021276_ChangedSubcategories.cs" />
+    <Compile Include="Migrations\201905231021276_ChangedSubcategories.Designer.cs">
+      <DependentUpon>201905231021276_ChangedSubcategories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906021853468_ChangedProducts.cs" />
+    <Compile Include="Migrations\201906021853468_ChangedProducts.Designer.cs">
+      <DependentUpon>201906021853468_ChangedProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906021856143_ChangedProducts1.cs" />
+    <Compile Include="Migrations\201906021856143_ChangedProducts1.Designer.cs">
+      <DependentUpon>201906021856143_ChangedProducts1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906031356013_ChangedProducts2.cs" />
+    <Compile Include="Migrations\201906031356013_ChangedProducts2.Designer.cs">
+      <DependentUpon>201906031356013_ChangedProducts2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Model.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201903152157050_UserAdded.resx">
+      <DependentUpon>201903152157050_UserAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903152229425_SupplierData.resx">
+      <DependentUpon>201903152229425_SupplierData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903152252060_ClientData.resx">
+      <DependentUpon>201903152252060_ClientData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903171736100_CategoryData.resx">
+      <DependentUpon>201903171736100_CategoryData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903171800296_SubcategoriesData.resx">
+      <DependentUpon>201903171800296_SubcategoriesData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903171802137_ProductData.resx">
+      <DependentUpon>201903171802137_ProductData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903171803335_BuyTicketData.resx">
+      <DependentUpon>201903171803335_BuyTicketData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903171813449_SellTicketData.resx">
+      <DependentUpon>201903171813449_SellTicketData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904121520459_MinLengthClient.resx">
+      <DependentUpon>201904121520459_MinLengthClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904141351118_RegulateMinimunLengthNullablesFields.resx">
+      <DependentUpon>201904141351118_RegulateMinimunLengthNullablesFields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905231021276_ChangedSubcategories.resx">
+      <DependentUpon>201905231021276_ChangedSubcategories.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906021853468_ChangedProducts.resx">
+      <DependentUpon>201906021853468_ChangedProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906021856143_ChangedProducts1.resx">
+      <DependentUpon>201906021856143_ChangedProducts1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906031356013_ChangedProducts2.resx">
+      <DependentUpon>201906031356013_ChangedProducts2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
