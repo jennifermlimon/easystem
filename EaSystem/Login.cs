@@ -49,7 +49,7 @@ namespace EaSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Users suppliers = new Users();
+            Products suppliers = new Products();
             suppliers.Show();
         }
     }

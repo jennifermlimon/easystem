@@ -77,6 +77,7 @@ namespace EaSystem
             //this.dtOut.Enabled = true;
         }
 
+
         // Método valida los campos al insertar
 
         //private bool ValidateField()
@@ -120,6 +121,10 @@ namespace EaSystem
 
         #endregion
 
-       
+        private void Products_Load(object sender, EventArgs e)
+        {
+            RefreshDataGridView();
+
+        }
     }
 }
