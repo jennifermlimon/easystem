@@ -84,7 +84,7 @@ namespace BusinessLogic
 
         // Método para eliminar un producto
 
-        public static bool DeleteSubcategory(Guid id)
+        public static bool DeleteProduct(Guid id)
         {
             try
             {

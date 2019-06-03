@@ -121,10 +121,157 @@ namespace EaSystem
 
         #endregion
 
+            // Método que carga campos
+
         private void Products_Load(object sender, EventArgs e)
         {
+         
             RefreshDataGridView();
+            IEnumerable<DataAccess.Entities.Subcategory> subcategories = BusinessSubcategory.GetAllSubcategories().ToList();
+            comboInsertSubcategory.DataSource = subcategories;
+            comboInsertSubcategory.DisplayMember = "SubcategoryName";
+            comboInsertSubcategory.ValueMember = "SubcategoryId";
 
         }
+
+        // Método que actualiza productos
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Product product = new Product
+            {
+                ProductName = this.txtProductName.Text,
+                ProductDescription = this.txtProductDescripcion.Text,
+                ProductId = new Guid(this.lbId.Text),
+                Price = Convert.ToDecimal(this.txtPrecioProducto.Text),
+                Earns = Convert.ToDouble(this.txtEarns.Text),
+                SubcategoryId = new Guid(this.comboProduct.SelectedValue.ToString())
+            };
+            bool isUpdated = BusinessProduct.UpdateProduct(product);
+            if (isUpdated)
+            {
+                RefreshDataGridView();
+                CleanFields();
+                MessageBox.Show("Producto actualizado correctamente");
+            }
+            else
+            {
+                MessageBox.Show("Ha ocurrido un error actualizando los campos del producto");
+            }
+        }
+
+        // Método que elimina un producto
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var rows = this.dtgridProduct.CurrentRow;
+            if (rows != null)
+            {
+                var isDeleted = BusinessProduct.DeleteProduct(new Guid(rows.Cells["ProductId"].Value.ToString()));
+
+                if (isDeleted)
+                {
+                    RefreshDataGridView();
+                    CleanFields();
+                    MessageBox.Show("Producto borrado correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Error borrando producto");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar una fila que borrar");
+            }
+        }
+
+        // Método que limpia los campos
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            CleanFields();
+            DisabledFields();
+        }
+
+        // Método que hace los campos editables
+
+        private void ClickProduct(object sender, DataGridViewCellEventArgs e)
+        {            
+            EnabledFields();
+            IEnumerable<DataAccess.Entities.Subcategory> subcategories = BusinessSubcategory.GetAllSubcategories().ToList();
+            comboProduct.DataSource = subcategories;
+            comboProduct.DisplayMember = "SubcategoryName";
+            comboProduct.ValueMember = "SubcategoryId";
+            var rows = this.dtgridProduct.CurrentRow;
+            if (rows != null)
+            {
+                this.txtProductName.Text = rows.Cells["ProductName"].Value.ToString(); ;
+                this.txtProductDescripcion.Text = rows.Cells["ProductDescription"].Value.ToString(); ;
+                this.lbId.Text = rows.Cells["ProductId"].Value.ToString();
+                this.txtEarns.Text = rows.Cells["Earns"].Value.ToString();
+                this.txtPrecioProducto.Text = rows.Cells["Price"].Value.ToString();                
+            }
+            else
+            {
+                MessageBox.Show("Selecciona una fila");
+            }
+        }
+
+        // Método que busca un producto
+
+        private void SearchProduct(object sender, EventArgs e)
+        {
+            this.dtgridProduct.DataSource = BusinessProduct.SearchProducts(this.txtProductSearch.Text);
+        }
+
+        // Método para insertar un producto
+
+        private void btInsertProduct_Click(object sender, EventArgs e)
+        {
+            bool isValid = true;// ValidateField();
+
+            if (isValid)
+            {
+                Product product = new Product
+                {
+                    ProductName = this.txtInsertProduct.Text,
+                    ProductDescription = this.txtInsertPDescription.Text,
+                    ProductId = Guid.NewGuid(),
+                    Price = Convert.ToDecimal(this.txtInsertPrize.Text),
+                    Earns = Convert.ToDouble(this.txtInsertEarns.Text),
+                    SubcategoryId = new Guid(this.comboInsertSubcategory.SelectedValue.ToString())
+                };
+
+                bool hasBeenInserted = BusinessProduct.InsertProduct(product);
+
+                if (hasBeenInserted)
+                {
+                    RefreshDataGridView();
+                    MessageBox.Show("Producto insertado correctamente");
+
+                }
+                else
+                {
+                    MessageBox.Show("Error al insertar producto");
+                }
+
+            }
+        }
+
+        // Método para insertar un producto
+
+        private void btCleanProduct_Click(object sender, EventArgs e)
+        {
+            this.txtInsertProduct.Text = String.Empty;
+            this.txtInsertPDescription.Text = String.Empty;
+            this.txtInsertPrize.Text = String.Empty;
+            this.txtInsertEarns.Text = String.Empty;
+            
+        }
+
+        
+
+
     }
 }

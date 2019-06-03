@@ -50,20 +50,20 @@
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.lbProduct = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.btCleanProduct = new System.Windows.Forms.Button();
+            this.btInsertProduct = new System.Windows.Forms.Button();
+            this.txtInsertEarns = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtInsertPrize = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboInsertSubcategory = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtInsertPDescription = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtInsertProduct = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.btCleanSubcatgory = new System.Windows.Forms.Button();
-            this.btInsertSubcategory = new System.Windows.Forms.Button();
             this.subcategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -116,7 +116,7 @@
             // 
             // txtEarns
             // 
-            this.txtEarns.Location = new System.Drawing.Point(523, 66);
+            this.txtEarns.Location = new System.Drawing.Point(528, 80);
             this.txtEarns.Name = "txtEarns";
             this.txtEarns.Size = new System.Drawing.Size(248, 20);
             this.txtEarns.TabIndex = 112;
@@ -125,7 +125,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(417, 69);
+            this.label5.Location = new System.Drawing.Point(422, 83);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(62, 13);
             this.label5.TabIndex = 111;
@@ -133,7 +133,7 @@
             // 
             // txtPrecioProducto
             // 
-            this.txtPrecioProducto.Location = new System.Drawing.Point(523, 24);
+            this.txtPrecioProducto.Location = new System.Drawing.Point(528, 38);
             this.txtPrecioProducto.Name = "txtPrecioProducto";
             this.txtPrecioProducto.Size = new System.Drawing.Size(248, 20);
             this.txtPrecioProducto.TabIndex = 106;
@@ -142,7 +142,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(417, 27);
+            this.label2.Location = new System.Drawing.Point(422, 41);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 105;
@@ -151,7 +151,7 @@
             // comboProduct
             // 
             this.comboProduct.FormattingEnabled = true;
-            this.comboProduct.Location = new System.Drawing.Point(127, 106);
+            this.comboProduct.Location = new System.Drawing.Point(132, 120);
             this.comboProduct.Name = "comboProduct";
             this.comboProduct.Size = new System.Drawing.Size(248, 21);
             this.comboProduct.TabIndex = 104;
@@ -160,7 +160,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 109);
+            this.label1.Location = new System.Drawing.Point(18, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 103;
@@ -185,6 +185,7 @@
             this.button3.TabIndex = 101;
             this.button3.Text = "Eliminar";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -195,6 +196,7 @@
             this.button2.TabIndex = 100;
             this.button2.Text = "Limpiar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -205,6 +207,7 @@
             this.button1.TabIndex = 99;
             this.button1.Text = "Actualizar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtProductSearch
             // 
@@ -212,6 +215,7 @@
             this.txtProductSearch.Name = "txtProductSearch";
             this.txtProductSearch.Size = new System.Drawing.Size(200, 20);
             this.txtProductSearch.TabIndex = 98;
+            this.txtProductSearch.TextChanged += new System.EventHandler(this.SearchProduct);
             // 
             // label17
             // 
@@ -229,7 +233,7 @@
             this.dtgridProduct.AutoGenerateColumns = false;
             this.dtgridProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgridProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productIdDataGridViewTextBoxColumn,
+            this.ProductId,
             this.ProductName,
             this.ProductDescription,
             this.Price,
@@ -241,6 +245,7 @@
             this.dtgridProduct.ReadOnly = true;
             this.dtgridProduct.Size = new System.Drawing.Size(644, 121);
             this.dtgridProduct.TabIndex = 96;
+            this.dtgridProduct.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickProduct);
             // 
             // productBindingSource
             // 
@@ -248,7 +253,7 @@
             // 
             // txtProductDescripcion
             // 
-            this.txtProductDescripcion.Location = new System.Drawing.Point(127, 66);
+            this.txtProductDescripcion.Location = new System.Drawing.Point(132, 80);
             this.txtProductDescripcion.Multiline = true;
             this.txtProductDescripcion.Name = "txtProductDescripcion";
             this.txtProductDescripcion.Size = new System.Drawing.Size(248, 20);
@@ -258,7 +263,7 @@
             // 
             this.lbDescription.AutoSize = true;
             this.lbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDescription.Location = new System.Drawing.Point(13, 63);
+            this.lbDescription.Location = new System.Drawing.Point(18, 83);
             this.lbDescription.Name = "lbDescription";
             this.lbDescription.Size = new System.Drawing.Size(74, 13);
             this.lbDescription.TabIndex = 94;
@@ -266,7 +271,7 @@
             // 
             // txtProductName
             // 
-            this.txtProductName.Location = new System.Drawing.Point(127, 24);
+            this.txtProductName.Location = new System.Drawing.Point(132, 38);
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(248, 20);
             this.txtProductName.TabIndex = 93;
@@ -275,7 +280,7 @@
             // 
             this.lbProduct.AutoSize = true;
             this.lbProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbProduct.Location = new System.Drawing.Point(13, 27);
+            this.lbProduct.Location = new System.Drawing.Point(18, 41);
             this.lbProduct.Name = "lbProduct";
             this.lbProduct.Size = new System.Drawing.Size(58, 13);
             this.lbProduct.TabIndex = 92;
@@ -283,17 +288,17 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.btCleanSubcatgory);
-            this.tabPage2.Controls.Add(this.btInsertSubcategory);
-            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.btCleanProduct);
+            this.tabPage2.Controls.Add(this.btInsertProduct);
+            this.tabPage2.Controls.Add(this.txtInsertEarns);
             this.tabPage2.Controls.Add(this.label8);
-            this.tabPage2.Controls.Add(this.textBox3);
+            this.tabPage2.Controls.Add(this.txtInsertPrize);
             this.tabPage2.Controls.Add(this.label11);
-            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.comboInsertSubcategory);
             this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.textBox4);
+            this.tabPage2.Controls.Add(this.txtInsertPDescription);
             this.tabPage2.Controls.Add(this.label13);
-            this.tabPage2.Controls.Add(this.textBox5);
+            this.tabPage2.Controls.Add(this.txtInsertProduct);
             this.tabPage2.Controls.Add(this.label14);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -303,12 +308,34 @@
             this.tabPage2.Text = "Insertar producto";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // btCleanProduct
             // 
-            this.textBox2.Location = new System.Drawing.Point(327, 161);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(248, 20);
-            this.textBox2.TabIndex = 128;
+            this.btCleanProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btCleanProduct.Location = new System.Drawing.Point(465, 336);
+            this.btCleanProduct.Name = "btCleanProduct";
+            this.btCleanProduct.Size = new System.Drawing.Size(75, 23);
+            this.btCleanProduct.TabIndex = 130;
+            this.btCleanProduct.Text = "Limpiar";
+            this.btCleanProduct.UseVisualStyleBackColor = true;
+            this.btCleanProduct.Click += new System.EventHandler(this.btCleanProduct_Click);
+            // 
+            // btInsertProduct
+            // 
+            this.btInsertProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btInsertProduct.Location = new System.Drawing.Point(286, 336);
+            this.btInsertProduct.Name = "btInsertProduct";
+            this.btInsertProduct.Size = new System.Drawing.Size(75, 23);
+            this.btInsertProduct.TabIndex = 129;
+            this.btInsertProduct.Text = "Insertar";
+            this.btInsertProduct.UseVisualStyleBackColor = true;
+            this.btInsertProduct.Click += new System.EventHandler(this.btInsertProduct_Click);
+            // 
+            // txtInsertEarns
+            // 
+            this.txtInsertEarns.Location = new System.Drawing.Point(327, 161);
+            this.txtInsertEarns.Name = "txtInsertEarns";
+            this.txtInsertEarns.Size = new System.Drawing.Size(248, 20);
+            this.txtInsertEarns.TabIndex = 128;
             // 
             // label8
             // 
@@ -320,12 +347,12 @@
             this.label8.TabIndex = 127;
             this.label8.Text = "Margen %";
             // 
-            // textBox3
+            // txtInsertPrize
             // 
-            this.textBox3.Location = new System.Drawing.Point(327, 267);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(248, 20);
-            this.textBox3.TabIndex = 122;
+            this.txtInsertPrize.Location = new System.Drawing.Point(327, 267);
+            this.txtInsertPrize.Name = "txtInsertPrize";
+            this.txtInsertPrize.Size = new System.Drawing.Size(248, 20);
+            this.txtInsertPrize.TabIndex = 122;
             // 
             // label11
             // 
@@ -337,13 +364,13 @@
             this.label11.TabIndex = 121;
             this.label11.Text = "Precio";
             // 
-            // comboBox1
+            // comboInsertSubcategory
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(327, 208);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(248, 21);
-            this.comboBox1.TabIndex = 120;
+            this.comboInsertSubcategory.FormattingEnabled = true;
+            this.comboInsertSubcategory.Location = new System.Drawing.Point(327, 208);
+            this.comboInsertSubcategory.Name = "comboInsertSubcategory";
+            this.comboInsertSubcategory.Size = new System.Drawing.Size(248, 21);
+            this.comboInsertSubcategory.TabIndex = 120;
             // 
             // label12
             // 
@@ -355,13 +382,13 @@
             this.label12.TabIndex = 119;
             this.label12.Text = "Subcategoria";
             // 
-            // textBox4
+            // txtInsertPDescription
             // 
-            this.textBox4.Location = new System.Drawing.Point(327, 94);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(248, 43);
-            this.textBox4.TabIndex = 118;
+            this.txtInsertPDescription.Location = new System.Drawing.Point(327, 94);
+            this.txtInsertPDescription.Multiline = true;
+            this.txtInsertPDescription.Name = "txtInsertPDescription";
+            this.txtInsertPDescription.Size = new System.Drawing.Size(248, 43);
+            this.txtInsertPDescription.TabIndex = 118;
             // 
             // label13
             // 
@@ -373,12 +400,12 @@
             this.label13.TabIndex = 117;
             this.label13.Text = "Descripción";
             // 
-            // textBox5
+            // txtInsertProduct
             // 
-            this.textBox5.Location = new System.Drawing.Point(327, 46);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(248, 20);
-            this.textBox5.TabIndex = 116;
+            this.txtInsertProduct.Location = new System.Drawing.Point(327, 46);
+            this.txtInsertProduct.Name = "txtInsertProduct";
+            this.txtInsertProduct.Size = new System.Drawing.Size(248, 20);
+            this.txtInsertProduct.TabIndex = 116;
             // 
             // label14
             // 
@@ -390,37 +417,17 @@
             this.label14.TabIndex = 115;
             this.label14.Text = "Producto";
             // 
-            // btCleanSubcatgory
-            // 
-            this.btCleanSubcatgory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCleanSubcatgory.Location = new System.Drawing.Point(465, 336);
-            this.btCleanSubcatgory.Name = "btCleanSubcatgory";
-            this.btCleanSubcatgory.Size = new System.Drawing.Size(75, 23);
-            this.btCleanSubcatgory.TabIndex = 130;
-            this.btCleanSubcatgory.Text = "Limpiar";
-            this.btCleanSubcatgory.UseVisualStyleBackColor = true;
-            // 
-            // btInsertSubcategory
-            // 
-            this.btInsertSubcategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btInsertSubcategory.Location = new System.Drawing.Point(286, 336);
-            this.btInsertSubcategory.Name = "btInsertSubcategory";
-            this.btInsertSubcategory.Size = new System.Drawing.Size(75, 23);
-            this.btInsertSubcategory.TabIndex = 129;
-            this.btInsertSubcategory.Text = "Insertar";
-            this.btInsertSubcategory.UseVisualStyleBackColor = true;
-            // 
             // subcategoryBindingSource
             // 
             this.subcategoryBindingSource.DataSource = typeof(DataAccess.Entities.Subcategory);
             // 
-            // productIdDataGridViewTextBoxColumn
+            // ProductId
             // 
-            this.productIdDataGridViewTextBoxColumn.DataPropertyName = "ProductId";
-            this.productIdDataGridViewTextBoxColumn.HeaderText = "ProductId";
-            this.productIdDataGridViewTextBoxColumn.Name = "productIdDataGridViewTextBoxColumn";
-            this.productIdDataGridViewTextBoxColumn.ReadOnly = true;
-            this.productIdDataGridViewTextBoxColumn.Visible = false;
+            this.ProductId.DataPropertyName = "ProductId";
+            this.ProductId.HeaderText = "ProductId";
+            this.ProductId.Name = "ProductId";
+            this.ProductId.ReadOnly = true;
+            this.ProductId.Visible = false;
             // 
             // ProductName
             // 
@@ -504,24 +511,24 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn InDate;
         private System.Windows.Forms.DataGridViewTextBoxColumn OutDate;
         private System.Windows.Forms.BindingSource productBindingSource;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtInsertEarns;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtInsertPrize;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboInsertSubcategory;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtInsertPDescription;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtInsertProduct;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button btCleanSubcatgory;
-        private System.Windows.Forms.Button btInsertSubcategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btCleanProduct;
+        private System.Windows.Forms.Button btInsertProduct;
+        private System.Windows.Forms.BindingSource subcategoryBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Earns;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subcategory;
-        private System.Windows.Forms.BindingSource subcategoryBindingSource;
     }
 }
