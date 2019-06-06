@@ -133,6 +133,14 @@ namespace BusinessLogic
             }
         }
 
+        // Método para retornar un producto según un ID
+
+        public static Product GetProductById(Guid productId)
+        {
+            Model _context = new Model();
+            return _context.Products.Find(productId);
+        }
+
         #endregion
 
         #region Private Methods
