@@ -80,6 +80,7 @@
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // stockToolStripMenuItem
             // 
@@ -97,18 +98,21 @@
             this.categoríasToolStripMenuItem.Name = "categoríasToolStripMenuItem";
             this.categoríasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.categoríasToolStripMenuItem.Text = "Categorías";
+            this.categoríasToolStripMenuItem.Click += new System.EventHandler(this.categoríasToolStripMenuItem_Click);
             // 
             // subcategoríasToolStripMenuItem
             // 
             this.subcategoríasToolStripMenuItem.Name = "subcategoríasToolStripMenuItem";
             this.subcategoríasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.subcategoríasToolStripMenuItem.Text = "Subcategorías";
+            this.subcategoríasToolStripMenuItem.Click += new System.EventHandler(this.subcategoríasToolStripMenuItem_Click);
             // 
             // productosToolStripMenuItem
             // 
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             this.productosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.productosToolStripMenuItem.Text = "Productos";
+            this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // almacenToolStripMenuItem
             // 
@@ -133,6 +137,7 @@
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
             this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.proveedoresToolStripMenuItem.Text = "Proveedores";
+            this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
             // 
             // cajaToolStripMenuItem
             // 

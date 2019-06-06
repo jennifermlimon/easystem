@@ -34,5 +34,40 @@ namespace EaSystem
         {
             this.Close();
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Customer customer = new Customer();
+            customer.MdiParent = this.MdiParent;
+            customer.Show();
+        }
+
+        private void categoríasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Category category = new Category();
+            category.MdiParent = this.MdiParent;
+            category.Show();
+        }
+
+        private void subcategoríasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Subcategories subcategory = new Subcategories();
+            subcategory.MdiParent = this.MdiParent;
+            subcategory.Show();
+        }
+
+        private void proveedoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Suppliers supplier = new Suppliers();
+            supplier.MdiParent = this.MdiParent;
+            supplier.Show();
+        }
+
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Products product = new Products();
+            product.MdiParent = this.MdiParent;
+            product.Show();
+        }
     }
 }

@@ -55,6 +55,7 @@
     <Compile Include="BusinessSubcategory.cs" />
     <Compile Include="BusinessSupplier.cs" />
     <Compile Include="BusinessUser.cs" />
+    <Compile Include="BussinesBuy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
