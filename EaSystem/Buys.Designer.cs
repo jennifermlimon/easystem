@@ -136,7 +136,7 @@
             this.subcategoryDataGridViewTextBoxColumn,
             this.earnsDataGridViewTextBoxColumn});
             this.dtBuy.DataSource = this.productBindingSource;
-            this.dtBuy.Location = new System.Drawing.Point(344, 79);
+            this.dtBuy.Location = new System.Drawing.Point(331, 79);
             this.dtBuy.Name = "dtBuy";
             this.dtBuy.Size = new System.Drawing.Size(321, 255);
             this.dtBuy.TabIndex = 8;
