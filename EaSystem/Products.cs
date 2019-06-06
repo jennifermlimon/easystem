@@ -2,12 +2,7 @@
 using DataAccess.Entities;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace EaSystem
@@ -29,7 +24,7 @@ namespace EaSystem
             this.dtgridProduct.DataSource = products;
             for (int i = 0; i < dtgridProduct.Rows.Count; i++)
             {
-                dtgridProduct.Rows[i].Cells["Subcategory"].Value = products[i].Subcategory.SubcategoryName;
+                dtgridProduct.Rows[i].Cells["SubcategoryName"].Value = products[i].Subcategory.SubcategoryName;
             }
 
             DisabledFields();
@@ -42,11 +37,8 @@ namespace EaSystem
             this.txtProductName.Text = string.Empty;
             this.txtProductDescripcion.Text = string.Empty;
             this.txtPrecioProducto.Text = string.Empty;
-           // this.txtAmount.Text = string.Empty;
             this.txtEarns.Text = string.Empty;
             this.comboProduct.Text = string.Empty;
-            //this.dtIn.Text = DateTime.Now.ToString();
-            //this.dtOut.Text = DateTime.Now.ToString();
         }
 
         // Método que dehabilita los campos
@@ -56,11 +48,8 @@ namespace EaSystem
             this.txtProductName.Enabled = false;
             this.txtProductDescripcion.Enabled = false;
             this.txtPrecioProducto.Enabled = false;
-            //this.txtAmount.Enabled = false;
             this.txtEarns.Enabled = false;
             this.comboProduct.Enabled = false;
-            //this.dtIn.Enabled = false;
-           // this.dtOut.Enabled = false;
         }
 
         // Método que habilita los campos
@@ -70,62 +59,109 @@ namespace EaSystem
             this.txtProductName.Enabled = true;
             this.txtProductDescripcion.Enabled = true;
             this.txtPrecioProducto.Enabled = true;
-           // this.txtAmount.Enabled = true;
             this.txtEarns.Enabled = true;
             this.comboProduct.Enabled = true;
-            //this.dtIn.Enabled = true;
-            //this.dtOut.Enabled = true;
         }
 
 
         // Método valida los campos al insertar
 
-        //private bool ValidateField()
-        //{
+        private bool ValidateField()
+        {
 
-        //    if (this.txt.Text.Equals(string.Empty) || this.txtInsertarSubcategoria.Text.Length > 25 || this.txtInsertarSubcategoria.Text.Length < 1)
-        //    {
-        //        this.errorInsertSubcategory.SetError(this.txtInsertarSubcategoria, "El campo nombre es requerido y debe tener entre 1 y 25 caracteres");
-        //        MessageBox.Show("El campo subcategoría es requerido y debe tener entre 1 y 25 caracteres");
-        //        return false;
-        //    }
-        //    if (this.comboInsert.Text.Equals(string.Empty))
-        //    {
-        //        this.errorInsertCatSubcategory.SetError(this.comboInsert, "El campo nombre es requerido");
-        //        MessageBox.Show("El campo categoría es requerido");
-        //        return false;
-        //    }
-        //    return true;
-        //}
+            if (this.txtInsertProduct.Text.Equals(string.Empty) || this.txtInsertProduct.Text.Length > 25 || this.txtInsertProduct.Text.Length < 1)
+            {
+                this.errorInsertProduct.SetError(this.txtInsertProduct, "El campo nombre es requerido y debe tener entre 1 y 25 caracteres");
+                MessageBox.Show("El campo producto es requerido y debe tener entre 1 y 25 caracteres");
+                return false;
+            }
+            if (this.txtInsertPDescription.Text.Equals(string.Empty))
+            {
+                this.errorInsertDescription.SetError(this.txtInsertPDescription, "El campo descripcion es requerido");
+                MessageBox.Show("El campo descripcion es requerido");
+                return false;
+            }
+            decimal price;
+            bool isDecimal = decimal.TryParse(this.txtInsertPrize.Text, out price);
+
+            if (this.txtInsertPrize.Text.Equals(string.Empty) || !isDecimal)
+            {
+                this.errorInsertPrice.SetError(this.txtInsertPrize, "El campo precio es requerido y debe ser un número");
+                MessageBox.Show("El campo precio es requerido y debe ser un número");
+                return false;
+            }
+            double earn;
+            bool isDouble = double.TryParse(this.txtInsertEarns.Text, out earn);
+
+            if (this.txtInsertEarns.Text.Equals(string.Empty) || !isDouble)
+            {
+                this.errorInsertEarns.SetError(this.txtInsertEarns, "El campo margen es requerido y debe ser un número");
+                MessageBox.Show("El campo margen es requerido y debe ser un número");
+                return false;
+            }
+            if (this.comboInsertSubcategory.Text.Equals(string.Empty))
+            {
+                this.errorInsertSubcategory.SetError(this.comboInsertSubcategory, "Debe elegir una subcategoría");
+                MessageBox.Show("Debe elegir una subcategoría");
+                return false;
+            }
+            return true;
+        }
 
         // Método para validar campos al actualizar
 
-        //private bool ValidateFieldUpdate()
-        //{
+        private bool ValidateFieldUpdate()
+        {
 
-        //    if (this.txtSubcategoryName.Text.Equals(string.Empty) || this.txtSubcategoryName.Text.Length > 25 || this.txtSubcategoryName.Text.Length < 1)
-        //    {
-        //        this.errorSubcategoryName.SetError(this.txtSubcategoryName, "El campo nombre es requerido y debe tener entre 1 y 25 caracteres");
-        //        MessageBox.Show("El campo subcategoría es requerido y debe tener entre 1 y 25 caracteres");
-        //        return false;
-        //    }
-        //    if (this.comboSubcategory.Text.Equals(string.Empty))
-        //    {
-        //        this.errorSubcategoryCategory.SetError(this.comboSubcategory, "El campo nombre es requerido");
-        //        MessageBox.Show("El campo categoría es requerido");
-        //        return false;
-        //    }
-        //    return true;
-        //}
+            if (this.txtProductName.Text.Equals(string.Empty) || this.txtProductName.Text.Length > 25 || this.txtProductName.Text.Length < 1)
+            {
+                this.errorProduct.SetError(this.txtProductName, "El campo nombre es requerido y debe tener entre 1 y 25 caracteres");
+                MessageBox.Show("El campo producto es requerido y debe tener entre 1 y 25 caracteres");
+                return false;
+            }
+            if (this.txtProductDescripcion.Text.Equals(string.Empty))
+            {
+                this.errorDescription.SetError(this.txtProductDescripcion, "El campo descripcion es requerido");
+                MessageBox.Show("El campo descripcion es requerido");
+                return false;
+            }
+            decimal price;
+            bool isDecimal = decimal.TryParse(this.txtPrecioProducto.Text, out price);
+
+            if (this.txtPrecioProducto.Text.Equals(string.Empty) || !isDecimal)
+            {
+                this.errorPrice.SetError(this.txtInsertPrize, "El campo precio es requerido y debe ser un número");
+                MessageBox.Show("El campo precio es requerido y debe ser un número");
+                return false;
+            }
+            double earn;
+            bool isDouble = double.TryParse(this.txtEarns.Text, out earn);
+
+            if (this.txtEarns.Text.Equals(string.Empty) || !isDouble)
+            {
+                this.errorEarns.SetError(this.txtEarns, "El campo margen es requerido y debe ser un número");
+                MessageBox.Show("El campo margen es requerido y debe ser un número");
+                return false;
+            }
+            if (this.comboProduct.Text.Equals(string.Empty))
+            {
+                this.errorSubcategory.SetError(this.comboProduct, "Debe elegir una subcategoría");
+                MessageBox.Show("Debe elegir una subcategoría");
+                return false;
+            }
+            return true;
+        }
 
 
         #endregion
 
-            // Método que carga campos
+        #region Event Methods
+
+        // Método que carga campos
 
         private void Products_Load(object sender, EventArgs e)
         {
-         
+
             RefreshDataGridView();
             IEnumerable<DataAccess.Entities.Subcategory> subcategories = BusinessSubcategory.GetAllSubcategories().ToList();
             comboInsertSubcategory.DataSource = subcategories;
@@ -138,25 +174,28 @@ namespace EaSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Product product = new Product
+            if (ValidateFieldUpdate())
             {
-                ProductName = this.txtProductName.Text,
-                ProductDescription = this.txtProductDescripcion.Text,
-                ProductId = new Guid(this.lbId.Text),
-                Price = Convert.ToDecimal(this.txtPrecioProducto.Text),
-                Earns = Convert.ToDouble(this.txtEarns.Text),
-                SubcategoryId = new Guid(this.comboProduct.SelectedValue.ToString())
-            };
-            bool isUpdated = BusinessProduct.UpdateProduct(product);
-            if (isUpdated)
-            {
-                RefreshDataGridView();
-                CleanFields();
-                MessageBox.Show("Producto actualizado correctamente");
-            }
-            else
-            {
-                MessageBox.Show("Ha ocurrido un error actualizando los campos del producto");
+                Product product = new Product
+                {
+                    ProductName = this.txtProductName.Text,
+                    ProductDescription = this.txtProductDescripcion.Text,
+                    ProductId = new Guid(this.lbId.Text),
+                    Price = Convert.ToDecimal(this.txtPrecioProducto.Text),
+                    Earns = Convert.ToDouble(this.txtEarns.Text),
+                    SubcategoryId = new Guid(this.comboProduct.SelectedValue.ToString())
+                };
+                bool isUpdated = BusinessProduct.UpdateProduct(product);
+                if (isUpdated)
+                {
+                    RefreshDataGridView();
+                    CleanFields();
+                    MessageBox.Show("Producto actualizado correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error actualizando los campos del producto");
+                }
             }
         }
 
@@ -197,7 +236,7 @@ namespace EaSystem
         // Método que hace los campos editables
 
         private void ClickProduct(object sender, DataGridViewCellEventArgs e)
-        {            
+        {
             EnabledFields();
             IEnumerable<DataAccess.Entities.Subcategory> subcategories = BusinessSubcategory.GetAllSubcategories().ToList();
             comboProduct.DataSource = subcategories;
@@ -210,7 +249,8 @@ namespace EaSystem
                 this.txtProductDescripcion.Text = rows.Cells["ProductDescription"].Value.ToString(); ;
                 this.lbId.Text = rows.Cells["ProductId"].Value.ToString();
                 this.txtEarns.Text = rows.Cells["Earns"].Value.ToString();
-                this.txtPrecioProducto.Text = rows.Cells["Price"].Value.ToString();                
+                this.txtPrecioProducto.Text = rows.Cells["Price"].Value.ToString();
+                this.comboProduct.Text = rows.Cells["SubcategoryName"].Value.ToString();
             }
             else
             {
@@ -229,7 +269,7 @@ namespace EaSystem
 
         private void btInsertProduct_Click(object sender, EventArgs e)
         {
-            bool isValid = true;// ValidateField();
+            bool isValid = ValidateField();
 
             if (isValid)
             {
@@ -249,6 +289,10 @@ namespace EaSystem
                 {
                     RefreshDataGridView();
                     MessageBox.Show("Producto insertado correctamente");
+                    this.txtInsertProduct.Text = String.Empty;
+                    this.txtInsertPDescription.Text = String.Empty;
+                    this.txtInsertPrize.Text = String.Empty;
+                    this.txtInsertEarns.Text = String.Empty;
 
                 }
                 else
@@ -267,10 +311,10 @@ namespace EaSystem
             this.txtInsertPDescription.Text = String.Empty;
             this.txtInsertPrize.Text = String.Empty;
             this.txtInsertEarns.Text = String.Empty;
-            
         }
+        #endregion
 
-        
+
 
 
     }

@@ -58,7 +58,7 @@ namespace BusinessLogic
                         currentProduct.ProductName = product.ProductName;
                         currentProduct.ProductDescription = product.ProductDescription;
                         currentProduct.ProductId = product.ProductId;
-                        currentProduct.Subcategory = product.Subcategory;
+                        currentProduct.SubcategoryId = product.SubcategoryId;
                         currentProduct.Price = product.Price;
                         //currentProduct.InDate = product.InDate;
                         //currentProduct.OutDate = product.OutDate;

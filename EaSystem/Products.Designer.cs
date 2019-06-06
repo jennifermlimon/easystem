@@ -68,13 +68,33 @@
             this.ProductDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Earns = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subcategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubcategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorInsertProduct = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorInsertDescription = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorInsertPrice = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorInsertEarns = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorInsertSubcategory = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProduct = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorDescription = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorSubcategory = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorPrice = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorEarns = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgridProduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.subcategoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorInsertProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorInsertDescription)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorInsertPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorInsertEarns)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorInsertSubcategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorDescription)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSubcategory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorEarns)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -238,7 +258,7 @@
             this.ProductDescription,
             this.Price,
             this.Earns,
-            this.Subcategory});
+            this.SubcategoryName});
             this.dtgridProduct.DataSource = this.productBindingSource;
             this.dtgridProduct.Location = new System.Drawing.Point(83, 244);
             this.dtgridProduct.Name = "dtgridProduct";
@@ -458,11 +478,51 @@
             this.Earns.Name = "Earns";
             this.Earns.ReadOnly = true;
             // 
-            // Subcategory
+            // SubcategoryName
             // 
-            this.Subcategory.HeaderText = "Subcategoría";
-            this.Subcategory.Name = "Subcategory";
-            this.Subcategory.ReadOnly = true;
+            this.SubcategoryName.HeaderText = "Subcategoría";
+            this.SubcategoryName.Name = "SubcategoryName";
+            this.SubcategoryName.ReadOnly = true;
+            // 
+            // errorInsertProduct
+            // 
+            this.errorInsertProduct.ContainerControl = this;
+            // 
+            // errorInsertDescription
+            // 
+            this.errorInsertDescription.ContainerControl = this;
+            // 
+            // errorInsertPrice
+            // 
+            this.errorInsertPrice.ContainerControl = this;
+            // 
+            // errorInsertEarns
+            // 
+            this.errorInsertEarns.ContainerControl = this;
+            // 
+            // errorInsertSubcategory
+            // 
+            this.errorInsertSubcategory.ContainerControl = this;
+            // 
+            // errorProduct
+            // 
+            this.errorProduct.ContainerControl = this;
+            // 
+            // errorDescription
+            // 
+            this.errorDescription.ContainerControl = this;
+            // 
+            // errorSubcategory
+            // 
+            this.errorSubcategory.ContainerControl = this;
+            // 
+            // errorPrice
+            // 
+            this.errorPrice.ContainerControl = this;
+            // 
+            // errorEarns
+            // 
+            this.errorEarns.ContainerControl = this;
             // 
             // Products
             // 
@@ -481,6 +541,16 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.subcategoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorInsertProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorInsertDescription)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorInsertPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorInsertEarns)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorInsertSubcategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorDescription)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSubcategory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorEarns)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -529,6 +599,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductDescription;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn Earns;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Subcategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubcategoryName;
+        private System.Windows.Forms.ErrorProvider errorInsertProduct;
+        private System.Windows.Forms.ErrorProvider errorInsertDescription;
+        private System.Windows.Forms.ErrorProvider errorInsertPrice;
+        private System.Windows.Forms.ErrorProvider errorInsertEarns;
+        private System.Windows.Forms.ErrorProvider errorInsertSubcategory;
+        private System.Windows.Forms.ErrorProvider errorProduct;
+        private System.Windows.Forms.ErrorProvider errorDescription;
+        private System.Windows.Forms.ErrorProvider errorSubcategory;
+        private System.Windows.Forms.ErrorProvider errorPrice;
+        private System.Windows.Forms.ErrorProvider errorEarns;
     }
 }
