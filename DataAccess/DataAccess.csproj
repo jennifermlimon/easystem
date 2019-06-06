@@ -53,6 +53,7 @@
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\SellTicket.cs" />
+    <Compile Include="Entities\Stock.cs" />
     <Compile Include="Entities\Subcategory.cs" />
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Entities\User.cs" />
@@ -112,6 +113,14 @@
     <Compile Include="Migrations\201906031356013_ChangedProducts2.Designer.cs">
       <DependentUpon>201906031356013_ChangedProducts2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906060930068_AddStock.cs" />
+    <Compile Include="Migrations\201906060930068_AddStock.Designer.cs">
+      <DependentUpon>201906060930068_AddStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906060931060_AddStock1.cs" />
+    <Compile Include="Migrations\201906060931060_AddStock1.Designer.cs">
+      <DependentUpon>201906060931060_AddStock1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -162,6 +171,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906031356013_ChangedProducts2.resx">
       <DependentUpon>201906031356013_ChangedProducts2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906060930068_AddStock.resx">
+      <DependentUpon>201906060930068_AddStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906060931060_AddStock1.resx">
+      <DependentUpon>201906060931060_AddStock1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

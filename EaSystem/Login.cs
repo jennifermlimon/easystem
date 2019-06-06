@@ -26,7 +26,8 @@ namespace EaSystem
                 bool isUserTrue = bLogin.CheckUser();
                 if (isUserTrue)
                 {
-                    MainPannel mPannel = new MainPannel();
+                    ControlPanel mPannel = new ControlPanel();
+                    mPannel.UserName = userName;
                     mPannel.Show();
                     this.Hide();
                 }
@@ -35,7 +36,6 @@ namespace EaSystem
                     MessageBox.Show("Usuario Incorrecto, póngase en contacto con el administrador");
                     this.txtPass.Text = string.Empty;
                     this.txtUser.Text = string.Empty;
-
                 }
             }          
 

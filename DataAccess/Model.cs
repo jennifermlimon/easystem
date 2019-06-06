@@ -27,7 +27,7 @@ namespace DataAccess
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<BuyTicket> BuyTickets { get; set; }
         public virtual DbSet<SellTicket> SellTickets { get; set; }
-
+        public virtual DbSet<Stock> Stocks { get; set; }
 
     }
 
