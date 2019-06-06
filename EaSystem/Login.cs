@@ -49,8 +49,8 @@ namespace EaSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Products suppliers = new Products();
-            suppliers.Show();
+           Buys b = new Buys();
+           b.Show();
         }
     }
 }

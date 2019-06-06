@@ -176,8 +176,8 @@ namespace EaSystem
             var rows = this.dtgridUser.CurrentRow;
             if (rows != null)
             {
-                this.txtUserName.Text = rows.Cells["UserName"].Value.ToString(); ;
-                this.txtUserPassword.Text = rows.Cells["UserPassword"].Value.ToString(); ;
+                this.txtUserName.Text = rows.Cells["UserName"].Value.ToString();
+                this.txtUserPassword.Text = rows.Cells["UserPassword"].Value.ToString();
                 this.lbId.Text = rows.Cells["UserId"].Value.ToString();
             }
             else
