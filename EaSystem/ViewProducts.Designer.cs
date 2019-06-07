@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtProductSearch = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -53,6 +53,10 @@
             this.dataGridView1.Size = new System.Drawing.Size(244, 233);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AddProductoToList);
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(DataAccess.Entities.Product);
             // 
             // txtProductSearch
             // 
@@ -75,27 +79,24 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(111, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 101;
-            this.label1.Text = "label1";
+            this.label1.Text = "Productos";
             // 
             // ProductId
             // 
             this.ProductId.DataPropertyName = "ProductId";
-            this.ProductId.HeaderText = "ProductId";
+            this.ProductId.HeaderText = "Cod. Producto";
             this.ProductId.Name = "ProductId";
             // 
             // productNameDataGridViewTextBoxColumn
             // 
             this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
+            this.productNameDataGridViewTextBoxColumn.HeaderText = "Producto";
             this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(DataAccess.Entities.Product);
             // 
             // ViewProducts
             // 
@@ -107,7 +108,7 @@
             this.Controls.Add(this.label17);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ViewProducts";
-            this.Text = "ViewProducts";
+            this.Text = "Elige un producto";
             this.Load += new System.EventHandler(this.ViewProducts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();

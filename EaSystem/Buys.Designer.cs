@@ -35,13 +35,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dtBuy = new System.Windows.Forms.DataGridView();
-            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productDescriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subcategoryIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.subcategoryDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.earnsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -53,6 +46,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtBuy)).BeginInit();
@@ -125,63 +120,14 @@
             // dtBuy
             // 
             this.dtBuy.AllowUserToOrderColumns = true;
-            this.dtBuy.AutoGenerateColumns = false;
             this.dtBuy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtBuy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductId,
-            this.productNameDataGridViewTextBoxColumn,
-            this.productDescriptionDataGridViewTextBoxColumn,
-            this.priceDataGridViewTextBoxColumn,
-            this.subcategoryIdDataGridViewTextBoxColumn,
-            this.subcategoryDataGridViewTextBoxColumn,
-            this.earnsDataGridViewTextBoxColumn});
-            this.dtBuy.DataSource = this.productBindingSource;
-            this.dtBuy.Location = new System.Drawing.Point(331, 79);
+            this.ProductName});
+            this.dtBuy.Location = new System.Drawing.Point(346, 79);
             this.dtBuy.Name = "dtBuy";
             this.dtBuy.Size = new System.Drawing.Size(321, 255);
             this.dtBuy.TabIndex = 8;
-            // 
-            // ProductId
-            // 
-            this.ProductId.DataPropertyName = "ProductId";
-            this.ProductId.HeaderText = "ProductId";
-            this.ProductId.Name = "ProductId";
-            // 
-            // productNameDataGridViewTextBoxColumn
-            // 
-            this.productNameDataGridViewTextBoxColumn.DataPropertyName = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.HeaderText = "ProductName";
-            this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-            // 
-            // productDescriptionDataGridViewTextBoxColumn
-            // 
-            this.productDescriptionDataGridViewTextBoxColumn.DataPropertyName = "ProductDescription";
-            this.productDescriptionDataGridViewTextBoxColumn.HeaderText = "ProductDescription";
-            this.productDescriptionDataGridViewTextBoxColumn.Name = "productDescriptionDataGridViewTextBoxColumn";
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            // 
-            // subcategoryIdDataGridViewTextBoxColumn
-            // 
-            this.subcategoryIdDataGridViewTextBoxColumn.DataPropertyName = "SubcategoryId";
-            this.subcategoryIdDataGridViewTextBoxColumn.HeaderText = "SubcategoryId";
-            this.subcategoryIdDataGridViewTextBoxColumn.Name = "subcategoryIdDataGridViewTextBoxColumn";
-            // 
-            // subcategoryDataGridViewTextBoxColumn
-            // 
-            this.subcategoryDataGridViewTextBoxColumn.DataPropertyName = "Subcategory";
-            this.subcategoryDataGridViewTextBoxColumn.HeaderText = "Subcategory";
-            this.subcategoryDataGridViewTextBoxColumn.Name = "subcategoryDataGridViewTextBoxColumn";
-            // 
-            // earnsDataGridViewTextBoxColumn
-            // 
-            this.earnsDataGridViewTextBoxColumn.DataPropertyName = "Earns";
-            this.earnsDataGridViewTextBoxColumn.HeaderText = "Earns";
-            this.earnsDataGridViewTextBoxColumn.Name = "earnsDataGridViewTextBoxColumn";
             // 
             // productBindingSource
             // 
@@ -259,6 +205,18 @@
             // 
             this.categoryBindingSource.DataSource = typeof(DataAccess.Entities.Category);
             // 
+            // ProductId
+            // 
+            this.ProductId.HeaderText = "Código Producto";
+            this.ProductId.Name = "ProductId";
+            this.ProductId.Width = 150;
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "Producto";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.Width = 130;
+            // 
             // Buys
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -295,14 +253,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource productBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn productDescriptionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn priceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subcategoryIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn subcategoryDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn earnsDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource productBindingSource1;
         private System.Windows.Forms.BindingSource categoryBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
     }
 }

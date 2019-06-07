@@ -14,12 +14,9 @@ namespace EaSystem
 {
     public partial class Buys : Form
     {
-        private readonly List<Product> _products = new List<Product>();
-
         public void AddProduct(Product product)
         {
-            this._products.Add(product);
-            this.dtBuy.DataSource = this._products;
+            this.dtBuy.Rows.Add(product.ProductId, product.ProductName);
         }
 
         public Buys()
@@ -35,16 +32,17 @@ namespace EaSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var rows = this.dtBuy.CurrentRow;
-            if (rows != null)
+            var rows = this.dtBuy.SelectedRows;
+            if (rows.Count <= 0)
             {
-                var products = _products.Where(x => x.ProductId.Equals(new Guid(rows.Cells["ProductId"].Value.ToString())));
-                _products.Remove(products.FirstOrDefault());
+                MessageBox.Show("Debe seleccionar alguna línea a borrar");
+                return;
             }
-            else
+            foreach (DataGridViewRow item in this.dtBuy.SelectedRows)
             {
-                MessageBox.Show("Selecciona una fila");
+                this.dtBuy.Rows.RemoveAt(item.Index);
             }
+
         }
     }
 }
