@@ -38,6 +38,12 @@ namespace EaSystem
             this.txtDescripcion.Text = string.Empty;            
         }
 
+        private void CleanFieldsInserted()
+        {
+            this.txtInsertarCategoria.Text = string.Empty;
+            this.txtInsertarDescripcion.Text = string.Empty;
+        }
+
         // Método que dehabilita los campos
 
         private void DisabledFields()
@@ -88,6 +94,9 @@ namespace EaSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool isValid = ValidateFieldUpdate();
+            if (!isValid) return;
+
             CategoryForm category = new CategoryForm
             {
                 CategoryName = this.txtCategoryName.Text,
@@ -168,7 +177,7 @@ namespace EaSystem
                 {
                     RefreshDataGridView();
                     MessageBox.Show("Categoría insertada correctamente");
-
+                    CleanFieldsInserted();
                 }
                 else
                 {

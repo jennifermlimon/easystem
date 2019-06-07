@@ -39,6 +39,18 @@ namespace EaSystem
             this.dtBirthDate.Text = DateTime.Now.ToString();
         }
 
+        private void CleanFieldsInserted()
+        {
+            this.txtInsertAddress.Text = string.Empty;
+            this.txtInsertPhone.Text = string.Empty;
+            this.txtInsertName.Text = string.Empty;
+            this.txtInsertNif.Text = string.Empty;
+            this.txtInsertMail.Text = string.Empty;
+            this.txtInsertSurname1.Text = string.Empty;
+            this.txtInsertSurname2.Text = string.Empty;
+            this.dtBirthDate.Text = DateTime.Now.ToString();
+        }
+
         // Método que dehabilita los campos
 
         private void DisabledFields()
@@ -110,6 +122,8 @@ namespace EaSystem
             return true;
         }
 
+        //TODO falta por hacer la validación de los campos cuando se actualiza
+
         #endregion
 
         #region Event Methods
@@ -173,7 +187,7 @@ namespace EaSystem
                 {
                     RefreshDataGridView();
                     MessageBox.Show("Cliente insertado correctamente");
-
+                    CleanFieldsInserted();
                 }
                 else
                 {

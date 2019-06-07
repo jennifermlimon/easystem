@@ -1,3 +1,5 @@
+using DataAccess.Entities;
+
 namespace DataAccess.Migrations
 {
     using System;
@@ -14,6 +16,7 @@ namespace DataAccess.Migrations
 
         protected override void Seed(DataAccess.Model context)
         {
+            context.Users.AddOrUpdate( new User() { UserId = Guid.NewGuid(), UserName = "admin123", UserPassword = "admin123" } );
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

@@ -108,22 +108,28 @@ namespace EaSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            User user = new User
+            bool isValid = ValidateFieldUpdate();
+
+            if (isValid)
             {
-                UserId = new Guid(this.lbId.Text),
-                UserName = this.txtUserName.Text,
-                UserPassword = this.txtUserPassword.Text
-            };
-            bool isUpdated = BusinessUser.UpdateUser(user);
-            if (isUpdated)
-            {
-                RefreshDataGridView();
-                CleanFields();
-                MessageBox.Show("Usuario actualizado correctamente");
-            }
-            else
-            {
-                MessageBox.Show("Ha ocurrido un error actualizando los campos del usuario");
+                User user = new User
+                {
+                    UserId = new Guid(this.lbId.Text),
+                    UserName = this.txtUserName.Text,
+                    UserPassword = this.txtUserPassword.Text
+                };
+
+                bool isUpdated = BusinessUser.UpdateUser(user);
+                if (isUpdated)
+                {
+                    RefreshDataGridView();
+                    CleanFields();
+                    MessageBox.Show("Usuario actualizado correctamente");
+                }
+                else
+                {
+                    MessageBox.Show("Ha ocurrido un error actualizando los campos del usuario");
+                }
             }
         }
 
@@ -205,7 +211,7 @@ namespace EaSystem
                 {
                     RefreshDataGridView();
                     MessageBox.Show("Usuario insertado correctamente");
-
+                    CleanInsertFields();
                 }
                 else
                 {
