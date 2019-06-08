@@ -125,6 +125,11 @@ namespace BusinessLogic
                 return users;
             }
         }
+        public static User GetUserById(Guid userId)
+        {
+            Model _context = new Model();
+            return _context.Users.Find(userId);
+        }
 
         #endregion
 

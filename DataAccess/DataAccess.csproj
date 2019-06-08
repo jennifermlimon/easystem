@@ -121,6 +121,14 @@
     <Compile Include="Migrations\201906060931060_AddStock1.Designer.cs">
       <DependentUpon>201906060931060_AddStock1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906081048407_ChangedBuy.cs" />
+    <Compile Include="Migrations\201906081048407_ChangedBuy.Designer.cs">
+      <DependentUpon>201906081048407_ChangedBuy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906081056223_ChangedStock.cs" />
+    <Compile Include="Migrations\201906081056223_ChangedStock.Designer.cs">
+      <DependentUpon>201906081056223_ChangedStock.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -177,6 +185,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906060931060_AddStock1.resx">
       <DependentUpon>201906060931060_AddStock1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906081048407_ChangedBuy.resx">
+      <DependentUpon>201906081048407_ChangedBuy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906081056223_ChangedStock.resx">
+      <DependentUpon>201906081056223_ChangedStock.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

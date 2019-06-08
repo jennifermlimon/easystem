@@ -127,6 +127,12 @@
     <Compile Include="ViewSupplier.Designer.cs">
       <DependentUpon>ViewSupplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewUser.Designer.cs">
+      <DependentUpon>ViewUser.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Buys.resx">
       <DependentUpon>Buys.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +159,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Subcategories.resx">
       <DependentUpon>Subcategories.cs</DependentUpon>
@@ -168,6 +175,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewSupplier.resx">
       <DependentUpon>ViewSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewUser.resx">
+      <DependentUpon>ViewUser.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DataAccess.Entities.Category.datasource" />
@@ -199,6 +209,15 @@
       <Project>{4C53FFB9-6CF4-4927-A81C-38575F661E6B}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupaPequeña.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lupaIcono.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

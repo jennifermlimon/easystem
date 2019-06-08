@@ -32,6 +32,15 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btCleanInsert = new System.Windows.Forms.Button();
+            this.btInsertBuy = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dtDateIn = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btSearchSupplier = new System.Windows.Forms.Button();
+            this.SupplierId = new System.Windows.Forms.Label();
+            this.btSearchUser = new System.Windows.Forms.Button();
+            this.UserId = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dtBuy = new System.Windows.Forms.DataGridView();
@@ -48,12 +57,6 @@
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.UserId = new System.Windows.Forms.Label();
-            this.btSearchUser = new System.Windows.Forms.Button();
-            this.btSearchSupplier = new System.Windows.Forms.Button();
-            this.SupplierId = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.dtDateIn = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtBuy)).BeginInit();
@@ -84,6 +87,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btCleanInsert);
+            this.tabPage2.Controls.Add(this.btInsertBuy);
+            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.dtDateIn);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.btSearchSupplier);
@@ -109,13 +115,105 @@
             this.tabPage2.Text = "Insertar Compra";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btCleanInsert
+            // 
+            this.btCleanInsert.Location = new System.Drawing.Point(198, 332);
+            this.btCleanInsert.Name = "btCleanInsert";
+            this.btCleanInsert.Size = new System.Drawing.Size(75, 23);
+            this.btCleanInsert.TabIndex = 19;
+            this.btCleanInsert.Text = "Limpiar";
+            this.btCleanInsert.UseVisualStyleBackColor = true;
+            // 
+            // btInsertBuy
+            // 
+            this.btInsertBuy.Location = new System.Drawing.Point(65, 332);
+            this.btInsertBuy.Name = "btInsertBuy";
+            this.btInsertBuy.Size = new System.Drawing.Size(75, 23);
+            this.btInsertBuy.TabIndex = 18;
+            this.btInsertBuy.Text = "Insertar";
+            this.btInsertBuy.UseVisualStyleBackColor = true;
+            this.btInsertBuy.Click += new System.EventHandler(this.btInsertBuy_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(470, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(134, 13);
+            this.label5.TabIndex = 17;
+            this.label5.Text = "Seleccionar productos";
+            // 
+            // dtDateIn
+            // 
+            this.dtDateIn.Location = new System.Drawing.Point(91, 259);
+            this.dtDateIn.Name = "dtDateIn";
+            this.dtDateIn.Size = new System.Drawing.Size(200, 20);
+            this.dtDateIn.TabIndex = 16;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(23, 265);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 13);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Fecha";
+            // 
+            // btSearchSupplier
+            // 
+            this.btSearchSupplier.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btSearchSupplier.FlatAppearance.BorderSize = 0;
+            this.btSearchSupplier.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSearchSupplier.Image = global::EaSystem.Properties.Resources.lupaIcono;
+            this.btSearchSupplier.Location = new System.Drawing.Point(211, 93);
+            this.btSearchSupplier.Name = "btSearchSupplier";
+            this.btSearchSupplier.Size = new System.Drawing.Size(30, 23);
+            this.btSearchSupplier.TabIndex = 14;
+            this.btSearchSupplier.UseVisualStyleBackColor = true;
+            this.btSearchSupplier.Click += new System.EventHandler(this.btSearchSupplier_Click);
+            // 
+            // SupplierId
+            // 
+            this.SupplierId.AutoSize = true;
+            this.SupplierId.Location = new System.Drawing.Point(247, 100);
+            this.SupplierId.Name = "SupplierId";
+            this.SupplierId.Size = new System.Drawing.Size(35, 13);
+            this.SupplierId.TabIndex = 13;
+            this.SupplierId.Text = "label6";
+            this.SupplierId.Visible = false;
+            // 
+            // btSearchUser
+            // 
+            this.btSearchUser.BackColor = System.Drawing.Color.Transparent;
+            this.btSearchUser.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btSearchUser.FlatAppearance.BorderSize = 0;
+            this.btSearchUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btSearchUser.Image = global::EaSystem.Properties.Resources.lupaIcono;
+            this.btSearchUser.Location = new System.Drawing.Point(211, 40);
+            this.btSearchUser.Name = "btSearchUser";
+            this.btSearchUser.Size = new System.Drawing.Size(30, 23);
+            this.btSearchUser.TabIndex = 12;
+            this.btSearchUser.UseVisualStyleBackColor = false;
+            this.btSearchUser.Click += new System.EventHandler(this.btSearchUser_Click);
+            // 
+            // UserId
+            // 
+            this.UserId.AutoSize = true;
+            this.UserId.Location = new System.Drawing.Point(247, 45);
+            this.UserId.Name = "UserId";
+            this.UserId.Size = new System.Drawing.Size(35, 13);
+            this.UserId.TabIndex = 11;
+            this.UserId.Text = "label5";
+            this.UserId.Visible = false;
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(690, 124);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 10;
-            this.button2.Text = "button2";
+            this.button2.Text = "Borrar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -125,7 +223,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 9;
-            this.button1.Text = "button1";
+            this.button1.Text = "Añadir";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -229,62 +327,6 @@
             // 
             this.categoryBindingSource.DataSource = typeof(DataAccess.Entities.Category);
             // 
-            // UserId
-            // 
-            this.UserId.AutoSize = true;
-            this.UserId.Location = new System.Drawing.Point(247, 45);
-            this.UserId.Name = "UserId";
-            this.UserId.Size = new System.Drawing.Size(35, 13);
-            this.UserId.TabIndex = 11;
-            this.UserId.Text = "label5";
-            this.UserId.Visible = false;
-            // 
-            // btSearchUser
-            // 
-            this.btSearchUser.Location = new System.Drawing.Point(211, 38);
-            this.btSearchUser.Name = "btSearchUser";
-            this.btSearchUser.Size = new System.Drawing.Size(30, 23);
-            this.btSearchUser.TabIndex = 12;
-            this.btSearchUser.Text = "button3";
-            this.btSearchUser.UseVisualStyleBackColor = true;
-            this.btSearchUser.Click += new System.EventHandler(this.btSearchUser_Click);
-            // 
-            // btSearchSupplier
-            // 
-            this.btSearchSupplier.Location = new System.Drawing.Point(211, 93);
-            this.btSearchSupplier.Name = "btSearchSupplier";
-            this.btSearchSupplier.Size = new System.Drawing.Size(30, 23);
-            this.btSearchSupplier.TabIndex = 14;
-            this.btSearchSupplier.Text = "button3";
-            this.btSearchSupplier.UseVisualStyleBackColor = true;
-            this.btSearchSupplier.Click += new System.EventHandler(this.btSearchSupplier_Click);
-            // 
-            // SupplierId
-            // 
-            this.SupplierId.AutoSize = true;
-            this.SupplierId.Location = new System.Drawing.Point(247, 100);
-            this.SupplierId.Name = "SupplierId";
-            this.SupplierId.Size = new System.Drawing.Size(35, 13);
-            this.SupplierId.TabIndex = 13;
-            this.SupplierId.Text = "label6";
-            this.SupplierId.Visible = false;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(23, 265);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 13);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Fecha";
-            // 
-            // dtDateIn
-            // 
-            this.dtDateIn.Location = new System.Drawing.Point(91, 259);
-            this.dtDateIn.Name = "dtDateIn";
-            this.dtDateIn.Size = new System.Drawing.Size(200, 20);
-            this.dtDateIn.TabIndex = 16;
-            // 
             // Buys
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -331,5 +373,8 @@
         private System.Windows.Forms.Label SupplierId;
         private System.Windows.Forms.Button btSearchUser;
         private System.Windows.Forms.Label UserId;
+        private System.Windows.Forms.Button btCleanInsert;
+        private System.Windows.Forms.Button btInsertBuy;
+        private System.Windows.Forms.Label label5;
     }
 }

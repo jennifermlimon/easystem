@@ -21,8 +21,22 @@ namespace BusinessLogic
             {
                 using (Model _context = new Model())
                 {
-                    _context.BuyTickets.Add(buyticket);
+                    var virtualTicket = new BuyTicket
+                    {
+                        Amount = buyticket.Amount,
+                        BuyTicketDate = buyticket.BuyTicketDate,
+                        BuyTicketId = buyticket.BuyTicketId,
+                        Price = buyticket.Price,
+                        SupplierId = buyticket.SupplierId,
+                        UserId = buyticket.UserId
+                    };
+                    _context.BuyTickets.Add(virtualTicket);
                     _context.SaveChanges();
+                    foreach (var item in buyticket.Products)
+                    {
+                        _context.Stocks.Add(new Stock { BuyTicketId = buyticket.BuyTicketId, DateIn = buyticket.BuyTicketDate, DateOut = null, ProductId = item.ProductId, SellTicketId = null, StockId = Guid.NewGuid() });
+                        _context.SaveChanges();
+                    }
                 }
 
                 if (HasBeenInserted(buyticket.BuyTicketId))

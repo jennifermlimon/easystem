@@ -19,8 +19,10 @@ namespace DataAccess.Entities
         [Required]
         public decimal Amount { get; set; }
         [Required]
+        public Guid UserId { get; set; }
         public User User { get; set; }
         [Required]
+        public Guid SupplierId { get; set; }
         public Supplier Supplier { get; set; }
         [Required]
         public DateTime BuyTicketDate { get; set; }
