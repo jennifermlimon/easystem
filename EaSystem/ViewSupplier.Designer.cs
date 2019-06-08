@@ -55,6 +55,7 @@
             this.txtProductSearch.Name = "txtProductSearch";
             this.txtProductSearch.Size = new System.Drawing.Size(156, 20);
             this.txtProductSearch.TabIndex = 104;
+            this.txtProductSearch.TextChanged += new System.EventHandler(this.SearchSupplier);
             // 
             // label17
             // 
@@ -78,6 +79,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(244, 233);
             this.dataGridView1.TabIndex = 102;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AddSuppliersToList);
             // 
             // supplierBindingSource
             // 
@@ -106,6 +108,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "ViewSupplier";
             this.Text = "ViewSupplier";
+            this.Load += new System.EventHandler(this.ViewSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             this.ResumeLayout(false);

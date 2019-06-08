@@ -128,6 +128,14 @@ namespace BusinessLogic
                 return suppliers;
             }
         }
+        
+        // Método para obtener un proveedor por ID
+
+        public static Supplier GetSupplierById (Guid Id)
+        {
+            Model _context = new Model();
+            return _context.Suppliers.Find(Id);
+        }
 
         #endregion
 

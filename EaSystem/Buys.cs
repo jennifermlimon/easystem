@@ -19,6 +19,12 @@ namespace EaSystem
             this.dtBuy.Rows.Add(product.ProductId, product.ProductName);
         }
 
+        public void AddSupplier(Supplier supplier)
+        {
+            this.txtInsertSupplier.Text = supplier.SupplierName;
+            this.SupplierId.Text = supplier.SupplierId.ToString();
+            this.txtInsertSupplier.Enabled = false;
+        }
         public Buys()
         {
             InitializeComponent();
@@ -43,6 +49,17 @@ namespace EaSystem
                 this.dtBuy.Rows.RemoveAt(item.Index);
             }
 
+        }
+
+        private void btSearchUser_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btSearchSupplier_Click(object sender, EventArgs e)
+        {
+            ViewSupplier viewSupplier = new ViewSupplier(this);
+            viewSupplier.ShowDialog();
         }
     }
 }
