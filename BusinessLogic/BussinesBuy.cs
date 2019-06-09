@@ -35,6 +35,8 @@ namespace BusinessLogic
                     foreach (var item in buyticket.Products)
                     {
                         _context.Stocks.Add(new Stock { BuyTicketId = buyticket.BuyTicketId, DateIn = buyticket.BuyTicketDate, DateOut = null, ProductId = item.ProductId, SellTicketId = null, StockId = Guid.NewGuid() });
+                        Product product = _context.Products.Find(item.ProductId);
+                        if (product != null) product.Quantity++;
                         _context.SaveChanges();
                     }
                 }

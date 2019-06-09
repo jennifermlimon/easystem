@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +15,15 @@ namespace EaSystem
 {
     public partial class Buys : Form
     {
-        List<Product> products = new List<Product>();
+        readonly List<Product> _products = new List<Product>();
         public void AddProduct(Product product)
         {
-            this.dtBuy.Rows.Add(product.ProductId, product.ProductName);
-            products.Add(product);
+            this.dtBuy.Rows.Add(product.ProductId, product.ProductName, product.Price);
+            var amount = Convert.ToDecimal(this.txtInsertAmount.Text, CultureInfo.InvariantCulture) + product.Price;
+            this.txtInsertAmount.Text = amount.ToString(CultureInfo.InvariantCulture);
+            var total = amount * (decimal) 1.21;
+            this.txtInsertTotal.Text = total.ToString(CultureInfo.InvariantCulture);
+            _products.Add(product);
         }
 
         public void AddSupplier(Supplier supplier)
@@ -56,8 +61,8 @@ namespace EaSystem
             {
                 var productRemoved = item.Cells["ProductId"].Value.ToString();
                 this.dtBuy.Rows.RemoveAt(item.Index);
-                var getOfList = products.Where(x => x.ProductId.Equals(new Guid(productRemoved))).FirstOrDefault();
-                products.Remove(getOfList);
+                var getOfList = _products.FirstOrDefault(x => x.ProductId.Equals(new Guid(productRemoved)));
+                _products.Remove(getOfList);
             }
 
         }
@@ -86,7 +91,7 @@ namespace EaSystem
                     Price = Convert.ToDecimal(this.txtInsertTotal.Text),
                     BuyTicketDate = DateTime.Parse(this.dtDateIn.Text),
                     BuyTicketId = Guid.NewGuid(),
-                    Products = products,
+                    Products = _products,
                     SupplierId = new Guid(this.SupplierId.Text),                   
                     UserId = new Guid(this.UserId.Text)
 
@@ -103,6 +108,22 @@ namespace EaSystem
                     MessageBox.Show("Error al insertar categoria");
                 }
             }
+        }
+        // Botón para eliminar un Ticket
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Limpiar campos de la inserción
+        private void btCleanInsert_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Buys_Load(object sender, EventArgs e)
+        {
+            this.dtBuyTickets.DataSource = BussinesBuy.GetAllBuyTickets().ToList();
         }
     }
 }

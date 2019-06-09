@@ -24,5 +24,6 @@ namespace DataAccess.Entities
         public Subcategory Subcategory{ get; set; }  
         [Required]
         public double Earns { get; set; }
+        public int Quantity { get; set; } = 0;
     }
 }

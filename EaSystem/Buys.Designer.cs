@@ -31,6 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtSearchBuy = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.dtBuyTickets = new System.Windows.Forms.DataGridView();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyTicketId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyTicketDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buyTicketBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btCleanInsert = new System.Windows.Forms.Button();
             this.btInsertBuy = new System.Windows.Forms.Button();
@@ -44,8 +53,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dtBuy = new System.Windows.Forms.DataGridView();
-            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtInsertTotal = new System.Windows.Forms.TextBox();
             this.txtInsertAmount = new System.Windows.Forms.TextBox();
             this.txtInsertSupplier = new System.Windows.Forms.TextBox();
@@ -57,12 +64,28 @@
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtBuyTickets)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buyTicketBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtBuy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -77,6 +100,10 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.txtSearchBuy);
+            this.tabPage1.Controls.Add(this.label6);
+            this.tabPage1.Controls.Add(this.button3);
+            this.tabPage1.Controls.Add(this.dtBuyTickets);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -84,6 +111,75 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Compras";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // txtSearchBuy
+            // 
+            this.txtSearchBuy.Location = new System.Drawing.Point(148, 50);
+            this.txtSearchBuy.Name = "txtSearchBuy";
+            this.txtSearchBuy.Size = new System.Drawing.Size(136, 20);
+            this.txtSearchBuy.TabIndex = 3;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(90, 53);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Buscador";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(93, 369);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 1;
+            this.button3.Text = "Eliminar ";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // dtBuyTickets
+            // 
+            this.dtBuyTickets.AutoGenerateColumns = false;
+            this.dtBuyTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtBuyTickets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Price,
+            this.BuyTicketId,
+            this.Amount,
+            this.BuyTicketDate});
+            this.dtBuyTickets.DataSource = this.buyTicketBindingSource;
+            this.dtBuyTickets.Location = new System.Drawing.Point(93, 96);
+            this.dtBuyTickets.Name = "dtBuyTickets";
+            this.dtBuyTickets.Size = new System.Drawing.Size(612, 245);
+            this.dtBuyTickets.TabIndex = 0;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Importe";
+            this.Price.Name = "Price";
+            // 
+            // BuyTicketId
+            // 
+            this.BuyTicketId.DataPropertyName = "BuyTicketId";
+            this.BuyTicketId.HeaderText = "Código Ticket";
+            this.BuyTicketId.Name = "BuyTicketId";
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "Total";
+            this.Amount.Name = "Amount";
+            // 
+            // BuyTicketDate
+            // 
+            this.BuyTicketDate.DataPropertyName = "BuyTicketDate";
+            this.BuyTicketDate.HeaderText = "Fecha de Compra";
+            this.BuyTicketDate.Name = "BuyTicketDate";
+            // 
+            // buyTicketBindingSource
+            // 
+            this.buyTicketBindingSource.DataSource = typeof(DataAccess.Entities.BuyTicket);
             // 
             // tabPage2
             // 
@@ -123,6 +219,7 @@
             this.btCleanInsert.TabIndex = 19;
             this.btCleanInsert.Text = "Limpiar";
             this.btCleanInsert.UseVisualStyleBackColor = true;
+            this.btCleanInsert.Click += new System.EventHandler(this.btCleanInsert_Click);
             // 
             // btInsertBuy
             // 
@@ -138,7 +235,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(470, 29);
+            this.label5.Location = new System.Drawing.Point(420, 40);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(134, 13);
             this.label5.TabIndex = 17;
@@ -233,26 +330,16 @@
             this.dtBuy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtBuy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductId,
+            this.ProductPrice,
             this.ProductName});
-            this.dtBuy.Location = new System.Drawing.Point(363, 79);
+            this.dtBuy.Location = new System.Drawing.Point(335, 79);
             this.dtBuy.Name = "dtBuy";
-            this.dtBuy.Size = new System.Drawing.Size(321, 255);
+            this.dtBuy.Size = new System.Drawing.Size(325, 276);
             this.dtBuy.TabIndex = 8;
-            // 
-            // ProductId
-            // 
-            this.ProductId.HeaderText = "Código Producto";
-            this.ProductId.Name = "ProductId";
-            this.ProductId.Width = 150;
-            // 
-            // ProductName
-            // 
-            this.ProductName.HeaderText = "Producto";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.Width = 130;
             // 
             // txtInsertTotal
             // 
+            this.txtInsertTotal.Enabled = false;
             this.txtInsertTotal.Location = new System.Drawing.Point(91, 207);
             this.txtInsertTotal.Name = "txtInsertTotal";
             this.txtInsertTotal.Size = new System.Drawing.Size(100, 20);
@@ -260,10 +347,12 @@
             // 
             // txtInsertAmount
             // 
+            this.txtInsertAmount.Enabled = false;
             this.txtInsertAmount.Location = new System.Drawing.Point(91, 150);
             this.txtInsertAmount.Name = "txtInsertAmount";
             this.txtInsertAmount.Size = new System.Drawing.Size(100, 20);
             this.txtInsertAmount.TabIndex = 6;
+            this.txtInsertAmount.Text = "0";
             // 
             // txtInsertSupplier
             // 
@@ -315,10 +404,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuario";
             // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(DataAccess.Entities.Product);
-            // 
             // productBindingSource1
             // 
             this.productBindingSource1.DataSource = typeof(DataAccess.Entities.Product);
@@ -326,6 +411,43 @@
             // categoryBindingSource
             // 
             this.categoryBindingSource.DataSource = typeof(DataAccess.Entities.Category);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // errorProvider2
+            // 
+            this.errorProvider2.ContainerControl = this;
+            // 
+            // errorProvider3
+            // 
+            this.errorProvider3.ContainerControl = this;
+            // 
+            // errorProvider4
+            // 
+            this.errorProvider4.ContainerControl = this;
+            // 
+            // errorProvider5
+            // 
+            this.errorProvider5.ContainerControl = this;
+            // 
+            // ProductId
+            // 
+            this.ProductId.HeaderText = "Código Producto";
+            this.ProductId.Name = "ProductId";
+            this.ProductId.Width = 150;
+            // 
+            // ProductPrice
+            // 
+            this.ProductPrice.HeaderText = "Precio";
+            this.ProductPrice.Name = "ProductPrice";
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "Producto";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.Width = 130;
             // 
             // Buys
             // 
@@ -335,13 +457,23 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Buys";
             this.Text = "Buys";
+            this.Load += new System.EventHandler(this.Buys_Load);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtBuyTickets)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buyTicketBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtBuy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -365,8 +497,6 @@
         private System.Windows.Forms.BindingSource productBindingSource;
         private System.Windows.Forms.BindingSource productBindingSource1;
         private System.Windows.Forms.BindingSource categoryBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DateTimePicker dtDateIn;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btSearchSupplier;
@@ -376,5 +506,22 @@
         private System.Windows.Forms.Button btCleanInsert;
         private System.Windows.Forms.Button btInsertBuy;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtSearchBuy;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataGridView dtBuyTickets;
+        private System.Windows.Forms.BindingSource buyTicketBindingSource;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ErrorProvider errorProvider2;
+        private System.Windows.Forms.ErrorProvider errorProvider3;
+        private System.Windows.Forms.ErrorProvider errorProvider4;
+        private System.Windows.Forms.ErrorProvider errorProvider5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BuyTicketId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BuyTicketDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
     }
 }
