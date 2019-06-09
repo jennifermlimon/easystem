@@ -35,10 +35,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.dtBuyTickets = new System.Windows.Forms.DataGridView();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyTicketId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyTicketDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buyTicketBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btCleanInsert = new System.Windows.Forms.Button();
@@ -53,6 +49,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dtBuy = new System.Windows.Forms.DataGridView();
+            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtInsertTotal = new System.Windows.Forms.TextBox();
             this.txtInsertAmount = new System.Windows.Forms.TextBox();
             this.txtInsertSupplier = new System.Windows.Forms.TextBox();
@@ -64,14 +63,13 @@
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider3 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider4 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider5 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyTicketId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyTicketDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorUser = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorSupplier = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorAdd = new System.Windows.Forms.ErrorProvider(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtBuyTickets)).BeginInit();
@@ -81,11 +79,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSupplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -118,6 +114,7 @@
             this.txtSearchBuy.Name = "txtSearchBuy";
             this.txtSearchBuy.Size = new System.Drawing.Size(136, 20);
             this.txtSearchBuy.TabIndex = 3;
+            this.txtSearchBuy.TextChanged += new System.EventHandler(this.SearchBuyTicket);
             // 
             // label6
             // 
@@ -152,30 +149,6 @@
             this.dtBuyTickets.Name = "dtBuyTickets";
             this.dtBuyTickets.Size = new System.Drawing.Size(612, 245);
             this.dtBuyTickets.TabIndex = 0;
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "Importe";
-            this.Price.Name = "Price";
-            // 
-            // BuyTicketId
-            // 
-            this.BuyTicketId.DataPropertyName = "BuyTicketId";
-            this.BuyTicketId.HeaderText = "Código Ticket";
-            this.BuyTicketId.Name = "BuyTicketId";
-            // 
-            // Amount
-            // 
-            this.Amount.DataPropertyName = "Amount";
-            this.Amount.HeaderText = "Total";
-            this.Amount.Name = "Amount";
-            // 
-            // BuyTicketDate
-            // 
-            this.BuyTicketDate.DataPropertyName = "BuyTicketDate";
-            this.BuyTicketDate.HeaderText = "Fecha de Compra";
-            this.BuyTicketDate.Name = "BuyTicketDate";
             // 
             // buyTicketBindingSource
             // 
@@ -337,6 +310,23 @@
             this.dtBuy.Size = new System.Drawing.Size(325, 276);
             this.dtBuy.TabIndex = 8;
             // 
+            // ProductId
+            // 
+            this.ProductId.HeaderText = "Código Producto";
+            this.ProductId.Name = "ProductId";
+            this.ProductId.Width = 150;
+            // 
+            // ProductPrice
+            // 
+            this.ProductPrice.HeaderText = "Precio";
+            this.ProductPrice.Name = "ProductPrice";
+            // 
+            // ProductName
+            // 
+            this.ProductName.HeaderText = "Producto";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.Width = 130;
+            // 
             // txtInsertTotal
             // 
             this.txtInsertTotal.Enabled = false;
@@ -412,42 +402,45 @@
             // 
             this.categoryBindingSource.DataSource = typeof(DataAccess.Entities.Category);
             // 
-            // errorProvider1
+            // Price
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Importe";
+            this.Price.Name = "Price";
+            this.Price.Width = 140;
             // 
-            // errorProvider2
+            // BuyTicketId
             // 
-            this.errorProvider2.ContainerControl = this;
+            this.BuyTicketId.DataPropertyName = "BuyTicketId";
+            this.BuyTicketId.HeaderText = "Código Ticket";
+            this.BuyTicketId.Name = "BuyTicketId";
+            this.BuyTicketId.Width = 140;
             // 
-            // errorProvider3
+            // Amount
             // 
-            this.errorProvider3.ContainerControl = this;
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "Total";
+            this.Amount.Name = "Amount";
+            this.Amount.Width = 140;
             // 
-            // errorProvider4
+            // BuyTicketDate
             // 
-            this.errorProvider4.ContainerControl = this;
+            this.BuyTicketDate.DataPropertyName = "BuyTicketDate";
+            this.BuyTicketDate.HeaderText = "Fecha de Compra";
+            this.BuyTicketDate.Name = "BuyTicketDate";
+            this.BuyTicketDate.Width = 150;
             // 
-            // errorProvider5
+            // errorUser
             // 
-            this.errorProvider5.ContainerControl = this;
+            this.errorUser.ContainerControl = this;
             // 
-            // ProductId
+            // errorSupplier
             // 
-            this.ProductId.HeaderText = "Código Producto";
-            this.ProductId.Name = "ProductId";
-            this.ProductId.Width = 150;
+            this.errorSupplier.ContainerControl = this;
             // 
-            // ProductPrice
+            // errorAdd
             // 
-            this.ProductPrice.HeaderText = "Precio";
-            this.ProductPrice.Name = "ProductPrice";
-            // 
-            // ProductName
-            // 
-            this.ProductName.HeaderText = "Producto";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.Width = 130;
+            this.errorAdd.ContainerControl = this;
             // 
             // Buys
             // 
@@ -469,11 +462,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoryBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorSupplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorAdd)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -511,17 +502,15 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dtBuyTickets;
         private System.Windows.Forms.BindingSource buyTicketBindingSource;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.ErrorProvider errorProvider2;
-        private System.Windows.Forms.ErrorProvider errorProvider3;
-        private System.Windows.Forms.ErrorProvider errorProvider4;
-        private System.Windows.Forms.ErrorProvider errorProvider5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn BuyTicketId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
         private System.Windows.Forms.DataGridViewTextBoxColumn BuyTicketDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.ErrorProvider errorUser;
+        private System.Windows.Forms.ErrorProvider errorSupplier;
+        private System.Windows.Forms.ErrorProvider errorAdd;
     }
 }

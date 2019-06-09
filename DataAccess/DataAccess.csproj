@@ -129,6 +129,10 @@
     <Compile Include="Migrations\201906081056223_ChangedStock.Designer.cs">
       <DependentUpon>201906081056223_ChangedStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906091023321_AddQuantityToProducts.cs" />
+    <Compile Include="Migrations\201906091023321_AddQuantityToProducts.Designer.cs">
+      <DependentUpon>201906091023321_AddQuantityToProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -191,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906081056223_ChangedStock.resx">
       <DependentUpon>201906081056223_ChangedStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906091023321_AddQuantityToProducts.resx">
+      <DependentUpon>201906091023321_AddQuantityToProducts.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
