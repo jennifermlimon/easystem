@@ -72,5 +72,11 @@ namespace EaSystem
             Buys buys = new Buys {MdiParent = this.MdiParent};
             buys.Show();
         }
+
+        private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Stocks stock = new Stocks() {MdiParent  = this.MdiParent};
+            stock.Show();
+        }
     }
 }

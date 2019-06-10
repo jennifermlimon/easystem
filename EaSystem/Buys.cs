@@ -162,7 +162,9 @@ namespace EaSystem
                 if (hasBeenInserted)
                 {
                     CleanFieldsInserted();
-                    MessageBox.Show("Compra insertada correctamente");                   
+                    MessageBox.Show("Compra insertada correctamente");
+                    this.dtBuyTickets.DataSource = BussinesBuy.GetAllBuyTickets().ToList();
+
                 }
                 else
                 {

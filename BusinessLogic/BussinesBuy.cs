@@ -60,7 +60,7 @@ namespace BusinessLogic
             }
         }
 
-            
+
         // Método para eliminar una compra
 
         public static bool DeleteBuyTicket(Guid id)
@@ -73,11 +73,23 @@ namespace BusinessLogic
 
                     if (buyticket != null)
                     {
+                        var stock = _context.Stocks.Where(x => x.BuyTicketId.Equals(id)).ToList();
+
+                        foreach (var item in stock)
+                        {
+                            _context.Stocks.Attach(item);
+                            _context.Stocks.Remove(item);
+                            _context.SaveChanges();
+                            var product = _context.Products.Find(item.ProductId);
+                            if (product != null) product.Quantity--;
+                        }
+
                         _context.BuyTickets.Attach(buyticket);
                         _context.BuyTickets.Remove(buyticket);
                         _context.SaveChanges();
 
                         return true;
+
                     }
 
                     return false;
