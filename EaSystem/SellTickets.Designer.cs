@@ -28,8 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.txtSearchBuy = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.dtBuyTickets = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btCleanInsert = new System.Windows.Forms.Button();
             this.btInsertBuy = new System.Windows.Forms.Button();
@@ -42,7 +47,7 @@
             this.UserId = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.dtBuy = new System.Windows.Forms.DataGridView();
+            this.dtSell = new System.Windows.Forms.DataGridView();
             this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,16 +59,23 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSearchBuy = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dtBuyTickets = new System.Windows.Forms.DataGridView();
-            this.BuyTicketId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.errorUser = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorClient = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProduct = new System.Windows.Forms.ErrorProvider(this.components);
+            this.sellTicketBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.SellTicketId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SellTicketDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtBuy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtBuyTickets)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSell)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorClient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sellTicketBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -90,6 +102,48 @@
             this.tabPage1.Text = "Ventas";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // txtSearchBuy
+            // 
+            this.txtSearchBuy.Location = new System.Drawing.Point(146, 41);
+            this.txtSearchBuy.Name = "txtSearchBuy";
+            this.txtSearchBuy.Size = new System.Drawing.Size(136, 20);
+            this.txtSearchBuy.TabIndex = 7;
+            this.txtSearchBuy.TextChanged += new System.EventHandler(this.searchTicket);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(88, 44);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Buscador";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(91, 360);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Eliminar ";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // dtBuyTickets
+            // 
+            this.dtBuyTickets.AutoGenerateColumns = false;
+            this.dtBuyTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtBuyTickets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SellTicketId,
+            this.Amount,
+            this.Price,
+            this.SellTicketDate});
+            this.dtBuyTickets.DataSource = this.sellTicketBindingSource;
+            this.dtBuyTickets.Location = new System.Drawing.Point(91, 87);
+            this.dtBuyTickets.Name = "dtBuyTickets";
+            this.dtBuyTickets.Size = new System.Drawing.Size(612, 245);
+            this.dtBuyTickets.TabIndex = 4;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.btCleanInsert);
@@ -103,7 +157,7 @@
             this.tabPage2.Controls.Add(this.UserId);
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.dtBuy);
+            this.tabPage2.Controls.Add(this.dtSell);
             this.tabPage2.Controls.Add(this.txtInsertTotal);
             this.tabPage2.Controls.Add(this.txtInsertAmount);
             this.tabPage2.Controls.Add(this.txtInsertClient);
@@ -177,6 +231,7 @@
             this.btSearchSupplier.Size = new System.Drawing.Size(30, 23);
             this.btSearchSupplier.TabIndex = 34;
             this.btSearchSupplier.UseVisualStyleBackColor = true;
+            this.btSearchSupplier.Click += new System.EventHandler(this.btSearchSupplier_Click);
             // 
             // ClientId
             // 
@@ -200,6 +255,7 @@
             this.btSearchUser.Size = new System.Drawing.Size(30, 23);
             this.btSearchUser.TabIndex = 32;
             this.btSearchUser.UseVisualStyleBackColor = false;
+            this.btSearchUser.Click += new System.EventHandler(this.btSearchUser_Click_1);
             // 
             // UserId
             // 
@@ -231,18 +287,18 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // dtBuy
+            // dtSell
             // 
-            this.dtBuy.AllowUserToOrderColumns = true;
-            this.dtBuy.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtBuy.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dtSell.AllowUserToOrderColumns = true;
+            this.dtSell.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtSell.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductId,
             this.ProductPrice,
             this.ProductName});
-            this.dtBuy.Location = new System.Drawing.Point(338, 94);
-            this.dtBuy.Name = "dtBuy";
-            this.dtBuy.Size = new System.Drawing.Size(325, 276);
-            this.dtBuy.TabIndex = 28;
+            this.dtSell.Location = new System.Drawing.Point(338, 94);
+            this.dtSell.Name = "dtSell";
+            this.dtSell.Size = new System.Drawing.Size(325, 276);
+            this.dtSell.TabIndex = 28;
             // 
             // ProductId
             // 
@@ -328,48 +384,49 @@
             this.label1.TabIndex = 20;
             this.label1.Text = "Usuario";
             // 
-            // txtSearchBuy
+            // errorUser
             // 
-            this.txtSearchBuy.Location = new System.Drawing.Point(146, 41);
-            this.txtSearchBuy.Name = "txtSearchBuy";
-            this.txtSearchBuy.Size = new System.Drawing.Size(136, 20);
-            this.txtSearchBuy.TabIndex = 7;
+            this.errorUser.ContainerControl = this;
             // 
-            // label6
+            // errorClient
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(88, 44);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Buscador";
+            this.errorClient.ContainerControl = this;
             // 
-            // button3
+            // errorProduct
             // 
-            this.button3.Location = new System.Drawing.Point(91, 360);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Eliminar ";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.errorProduct.ContainerControl = this;
             // 
-            // dtBuyTickets
+            // sellTicketBindingSource
             // 
-            this.dtBuyTickets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtBuyTickets.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.BuyTicketId});
-            this.dtBuyTickets.Location = new System.Drawing.Point(91, 87);
-            this.dtBuyTickets.Name = "dtBuyTickets";
-            this.dtBuyTickets.Size = new System.Drawing.Size(612, 245);
-            this.dtBuyTickets.TabIndex = 4;
+            this.sellTicketBindingSource.DataSource = typeof(DataAccess.Entities.SellTicket);
             // 
-            // BuyTicketId
+            // SellTicketId
             // 
-            this.BuyTicketId.DataPropertyName = "BuyTicketId";
-            this.BuyTicketId.HeaderText = "Código Ticket";
-            this.BuyTicketId.Name = "BuyTicketId";
-            this.BuyTicketId.Width = 140;
+            this.SellTicketId.DataPropertyName = "SellTicketId";
+            this.SellTicketId.HeaderText = "Código ";
+            this.SellTicketId.Name = "SellTicketId";
+            this.SellTicketId.Width = 150;
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "Precio";
+            this.Amount.Name = "Amount";
+            this.Amount.Width = 140;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Total";
+            this.Price.Name = "Price";
+            this.Price.Width = 140;
+            // 
+            // SellTicketDate
+            // 
+            this.SellTicketDate.DataPropertyName = "SellTicketDate";
+            this.SellTicketDate.HeaderText = "Fecha";
+            this.SellTicketDate.Name = "SellTicketDate";
+            this.SellTicketDate.Width = 140;
             // 
             // SellTickets
             // 
@@ -382,10 +439,14 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtBuyTickets)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dtBuy)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtBuyTickets)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtSell)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorClient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sellTicketBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -406,7 +467,7 @@
         private System.Windows.Forms.Label UserId;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dtBuy;
+        private System.Windows.Forms.DataGridView dtSell;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
@@ -422,6 +483,13 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dtBuyTickets;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BuyTicketId;
+        private System.Windows.Forms.ErrorProvider errorUser;
+        private System.Windows.Forms.ErrorProvider errorClient;
+        private System.Windows.Forms.ErrorProvider errorProduct;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SellTicketId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Amount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SellTicketDate;
+        private System.Windows.Forms.BindingSource sellTicketBindingSource;
     }
 }

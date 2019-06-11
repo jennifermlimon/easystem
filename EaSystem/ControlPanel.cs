@@ -78,5 +78,11 @@ namespace EaSystem
             Stocks stock = new Stocks() {MdiParent  = this.MdiParent};
             stock.Show();
         }
+
+        private void ventasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SellTickets sellTickets = new SellTickets() {MdiParent = this.MdiParent };
+            sellTickets.Show();
+        }
     }
 }

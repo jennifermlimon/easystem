@@ -121,6 +121,12 @@
     <Compile Include="Users.Designer.cs">
       <DependentUpon>Users.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewClient.Designer.cs">
+      <DependentUpon>ViewClient.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewProducts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     <EmbeddedResource Include="Users.resx">
       <DependentUpon>Users.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewClient.resx">
+      <DependentUpon>ViewClient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewProducts.resx">
       <DependentUpon>ViewProducts.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,7 +202,9 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\DataAccess.Entities.Category.datasource" />
+    <None Include="Properties\DataSources\DataAccess.Entities.Client.datasource" />
     <None Include="Properties\DataSources\DataAccess.Entities.Product.datasource" />
+    <None Include="Properties\DataSources\DataAccess.Entities.SellTicket.datasource" />
     <None Include="Properties\DataSources\DataAccess.Entities.Subcategory.datasource" />
     <None Include="Properties\DataSources\DataAccess.Entities.Supplier.datasource" />
     <None Include="Properties\DataSources\DataAccess.Entities.User.datasource" />

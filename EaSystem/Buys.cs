@@ -228,6 +228,8 @@ namespace EaSystem
             this.dtBuyTickets.DataSource = BussinesBuy.GetAllBuyTickets().ToList();
         }
 
+        // Método para buscar compra
+
         private void SearchBuyTicket(object sender, EventArgs e)
         {
             this.dtBuyTickets.DataSource = BussinesBuy.SearchBuyTickets(this.txtSearchBuy.Text);
