@@ -21,6 +21,11 @@ namespace BusinessLogic
             {
                 using (Model _context = new Model())
                 {
+                    IEnumerable<Cashier> cashiers = _context.Cashiers.ToList();
+                    Cashier currentCashier = cashiers.FirstOrDefault();
+
+                    if (!cashiers.Any()) return false;
+                   
                     var virtualTicket = new SellTicket
                     {
                         UserId = sellTicket.UserId,
@@ -28,10 +33,9 @@ namespace BusinessLogic
                         Amount = sellTicket.Amount,
                         Price = sellTicket.Price,
                         SellTicketDate = sellTicket.SellTicketDate,
-                        SellTicketId = sellTicket.SellTicketId
+                        SellTicketId = sellTicket.SellTicketId,
+                        CashierId =  currentCashier?.CashierId
                     };
-                    _context.SellTickets.Add(virtualTicket);
-                    _context.SaveChanges();
 
                     foreach (var item in sellTicket.Products)
                     {
@@ -41,6 +45,13 @@ namespace BusinessLogic
 
                         Product product = _context.Products.Find(item.ProductId);
                         if (product != null) product.Quantity--;
+                        _context.SaveChanges();
+                    }
+
+                    if (currentCashier!= null && !currentCashier.Close)
+                    {
+                        _context.SellTickets.Add(virtualTicket);
+                        currentCashier.Amount = currentCashier.Amount + Convert.ToDouble(sellTicket.Price);
                         _context.SaveChanges();
                     }
                 }

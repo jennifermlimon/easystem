@@ -22,8 +22,7 @@ namespace DataAccess.Entities
         public Client Client { get; set; }
         [Required]
         public DateTime SellTicketDate { get; set; }
-        [Required]
-        public Guid CashierId { get; set; }
+        public Guid? CashierId { get; set; }
         public Cashier Cashier { get; set; }
     }
 }

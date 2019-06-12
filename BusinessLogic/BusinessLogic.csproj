@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessCashier.cs" />
     <Compile Include="BusinessCategory.cs" />
     <Compile Include="BusinessCustomer.cs" />
     <Compile Include="BusinessLogin.cs" />

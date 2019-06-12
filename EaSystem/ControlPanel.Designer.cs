@@ -158,19 +158,20 @@
             // nuevaCajaToolStripMenuItem
             // 
             this.nuevaCajaToolStripMenuItem.Name = "nuevaCajaToolStripMenuItem";
-            this.nuevaCajaToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.nuevaCajaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.nuevaCajaToolStripMenuItem.Text = "Nueva Caja";
+            this.nuevaCajaToolStripMenuItem.Click += new System.EventHandler(this.nuevaCajaToolStripMenuItem_Click);
             // 
             // historicoDeCajasToolStripMenuItem
             // 
             this.historicoDeCajasToolStripMenuItem.Name = "historicoDeCajasToolStripMenuItem";
-            this.historicoDeCajasToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.historicoDeCajasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.historicoDeCajasToolStripMenuItem.Text = "Historico de Cajas";
             // 
             // cajaActualToolStripMenuItem
             // 
             this.cajaActualToolStripMenuItem.Name = "cajaActualToolStripMenuItem";
-            this.cajaActualToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.cajaActualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cajaActualToolStripMenuItem.Text = "Caja Actual";
             // 
             // ayudaToolStripMenuItem

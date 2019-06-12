@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessLogic;
+using DataAccess.Entities;
 
 namespace EaSystem
 {
@@ -83,6 +85,25 @@ namespace EaSystem
         {
             SellTickets sellTickets = new SellTickets() {MdiParent = this.MdiParent };
             sellTickets.Show();
+        }
+
+        private void nuevaCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cashier cashier = BusinessCashier.OpenCashier();
+                if (cashier == null) { MessageBox.Show("Error abriendo la caja"); }
+                else
+                {
+                    CurrentCashier currentCashier = new CurrentCashier {MdiParent = this.MdiParent};
+                    currentCashier.Show();
+                }
+            }
+            catch (ArgumentException exception)
+            {
+                MessageBox.Show(e.ToString());
+            }
+          
         }
     }
 }
