@@ -52,6 +52,7 @@
     <Compile Include="BusinessCustomer.cs" />
     <Compile Include="BusinessLogin.cs" />
     <Compile Include="BusinessProduct.cs" />
+    <Compile Include="BusinessSell.cs" />
     <Compile Include="BusinessSubcategory.cs" />
     <Compile Include="BusinessSupplier.cs" />
     <Compile Include="BusinessUser.cs" />

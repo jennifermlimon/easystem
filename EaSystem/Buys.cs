@@ -23,7 +23,8 @@ namespace EaSystem
             InitializeComponent();
         }
 
-        #region publicos
+        #region Public Methods
+
         // Método para añadir producto
 
         public void AddProduct(Product product)
@@ -55,6 +56,7 @@ namespace EaSystem
         }
         #endregion
 
+        #region Private Methods
         // Método de validaciones
 
         private bool ValidateField()
@@ -92,6 +94,22 @@ namespace EaSystem
 
             return true;
         }
+
+        // Método para limpiar campos de inserción
+
+        private void CleanFieldsInserted()
+        {
+            this.txtInsertUser.Text = string.Empty;
+            this.txtInsertSupplier.Text = string.Empty;
+            this.txtInsertAmount.Text = "0";
+            this.txtInsertTotal.Text = string.Empty;
+            this.dtDateIn.Text = DateTime.Now.ToString();
+            this.dtBuy.Rows.Clear();
+
+        }
+        #endregion
+
+        #region Event Methods
 
         //Método que abre la ventana de productos
 
@@ -152,7 +170,7 @@ namespace EaSystem
                     BuyTicketDate = DateTime.Parse(this.dtDateIn.Text),
                     BuyTicketId = Guid.NewGuid(),
                     Products = _products,
-                    SupplierId = new Guid(this.SupplierId.Text),                   
+                    SupplierId = new Guid(this.SupplierId.Text),
                     UserId = new Guid(this.UserId.Text)
 
                 };
@@ -173,19 +191,6 @@ namespace EaSystem
             }
         }
 
-        // Método para limpiar campos de inserción
-
-        private void CleanFieldsInserted()
-        {
-            this.txtInsertUser.Text = string.Empty;
-            this.txtInsertSupplier.Text = string.Empty;
-            this.txtInsertAmount.Text ="0";
-            this.txtInsertTotal.Text = string.Empty;
-            this.dtDateIn.Text = DateTime.Now.ToString();
-            this.dtBuy.Rows.Clear();
-           
-        }
-
         // Botón para eliminar una compra
 
         private void button3_Click(object sender, EventArgs e)
@@ -197,7 +202,7 @@ namespace EaSystem
 
                 if (isDeleted)
                 {
-                    this.dtBuyTickets.DataSource = BussinesBuy.GetAllBuyTickets().ToList();                   
+                    this.dtBuyTickets.DataSource = BussinesBuy.GetAllBuyTickets().ToList();
                     MessageBox.Show("Compra borrada correctamente");
                 }
                 else
@@ -223,9 +228,12 @@ namespace EaSystem
             this.dtBuyTickets.DataSource = BussinesBuy.GetAllBuyTickets().ToList();
         }
 
+        // Método para buscar compra
+
         private void SearchBuyTicket(object sender, EventArgs e)
         {
             this.dtBuyTickets.DataSource = BussinesBuy.SearchBuyTickets(this.txtSearchBuy.Text);
-        }
+        } 
+        #endregion
     }
 }

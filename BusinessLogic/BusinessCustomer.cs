@@ -133,6 +133,14 @@ namespace BusinessLogic
             }      
         }
 
+        // Método para buscar cliente por código
+
+        public static Client GetClientById(Guid clientId)
+        {
+            Model _context = new Model();
+            return _context.Clients.Find(clientId);
+        }
+
         #endregion
 
         #region Private Methods
