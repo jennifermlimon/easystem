@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\BuyTicket.cs" />
+    <Compile Include="Entities\Cashier.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\Product.cs" />

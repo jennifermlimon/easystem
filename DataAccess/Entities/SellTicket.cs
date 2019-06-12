@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DataAccess.Entities
 {
@@ -23,5 +20,8 @@ namespace DataAccess.Entities
         public Client Client { get; set; }
         [Required]
         public DateTime SellTicketDate { get; set; }
+        [Required]
+        public Guid CashierId { get; set; }
+        public Cashier Cashier { get; set; }
     }
 }
