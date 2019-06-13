@@ -12,6 +12,8 @@ namespace BusinessLogic
 {
     public class BusinessCashier
     {
+        // Método para abrir la caja
+
         public static Cashier OpenCashier()
         {
             try
@@ -48,10 +50,41 @@ namespace BusinessLogic
 
         }
 
+        // Método para recuperar la caja actual
+
         public static Cashier GetCurrentCashier()
         {
             Model _context = new Model();
             return  _context.Cashiers.FirstOrDefault(x => x.Close == false);
+        }
+
+        // Método para cerrar caja
+
+        public static bool CloseCurrentCashier(Guid cashierId)
+        {
+            Model _context = new Model();
+            Cashier cashier = _context.Cashiers.Find(cashierId);
+            cashier.CloseDateTime = DateTime.Now;
+            cashier.Close = true;
+            _context.SaveChanges();
+            if (CheckCashier(cashierId))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        // Método para comprobar si la caja se ha cerrado
+
+        private static bool CheckCashier(Guid cashierId)
+        {
+            Model _context = new Model();
+            Cashier cashier = _context.Cashiers.Find(cashierId);
+            if (cashier.Close)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

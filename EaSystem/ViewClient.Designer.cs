@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewClient));
             this.lbUser = new System.Windows.Forms.Label();
             this.txtClientSearch = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientNif = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -83,10 +84,6 @@
             this.dataGridView1.TabIndex = 110;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.selectClient);
             // 
-            // clientBindingSource
-            // 
-            this.clientBindingSource.DataSource = typeof(DataAccess.Entities.Client);
-            // 
             // ClientName
             // 
             this.ClientName.DataPropertyName = "ClientName";
@@ -106,6 +103,10 @@
             this.ClientNif.HeaderText = "DNI";
             this.ClientNif.Name = "ClientNif";
             // 
+            // clientBindingSource
+            // 
+            this.clientBindingSource.DataSource = typeof(DataAccess.Entities.Client);
+            // 
             // ViewClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -115,6 +116,7 @@
             this.Controls.Add(this.txtClientSearch);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewClient";
             this.Text = "Clientes";
             this.Load += new System.EventHandler(this.ViewClient_Load);

@@ -19,6 +19,8 @@ namespace EaSystem
             InitializeComponent();
         }
 
+        // Método que carga la caja actual
+
         private void CurrentCashier_Load(object sender, EventArgs e)
         {
             Cashier currentCashier = BusinessCashier.GetCurrentCashier();
@@ -26,10 +28,21 @@ namespace EaSystem
             this.txtAmount.Text = currentCashier.Amount.ToString();
             this.txtToBank.Text = currentCashier.ToBank.ToString();
             this.dateTimePicker1.Text = currentCashier.OpenDateTime.ToString();
+            this.lbIdCashier.Text = currentCashier.CashierId.ToString();
         }
+      
+        // Método que cierra la caja
 
-        private void sellTicketBindingSource_CurrentChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
+            bool isClosed = BusinessCashier.CloseCurrentCashier(new Guid(this.lbIdCashier.Text));
+            if (isClosed)
+            {
+                MessageBox.Show("Caja cerrada correctamente");
+                this.Close();
+                return;
+            }
+            MessageBox.Show("Error al cerrar la caja");
 
         }
     }

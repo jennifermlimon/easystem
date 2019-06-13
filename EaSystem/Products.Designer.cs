@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Products));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtEarns = new System.Windows.Forms.TextBox();
@@ -44,6 +45,12 @@
             this.txtProductSearch = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.dtgridProduct = new System.Windows.Forms.DataGridView();
+            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Earns = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubcategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtProductDescripcion = new System.Windows.Forms.TextBox();
             this.lbDescription = new System.Windows.Forms.Label();
@@ -63,12 +70,6 @@
             this.txtInsertProduct = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.subcategoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ProductId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductDescription = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Earns = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubcategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errorInsertProduct = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorInsertDescription = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorInsertPrice = new System.Windows.Forms.ErrorProvider(this.components);
@@ -267,6 +268,49 @@
             this.dtgridProduct.TabIndex = 96;
             this.dtgridProduct.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickProduct);
             // 
+            // ProductId
+            // 
+            this.ProductId.DataPropertyName = "ProductId";
+            this.ProductId.HeaderText = "ProductId";
+            this.ProductId.Name = "ProductId";
+            this.ProductId.ReadOnly = true;
+            this.ProductId.Visible = false;
+            // 
+            // ProductName
+            // 
+            this.ProductName.DataPropertyName = "ProductName";
+            this.ProductName.HeaderText = "Producto";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
+            // 
+            // ProductDescription
+            // 
+            this.ProductDescription.DataPropertyName = "ProductDescription";
+            this.ProductDescription.HeaderText = "Descripción";
+            this.ProductDescription.Name = "ProductDescription";
+            this.ProductDescription.ReadOnly = true;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Precio";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
+            this.Price.Width = 75;
+            // 
+            // Earns
+            // 
+            this.Earns.DataPropertyName = "Earns";
+            this.Earns.HeaderText = "Margen";
+            this.Earns.Name = "Earns";
+            this.Earns.ReadOnly = true;
+            // 
+            // SubcategoryName
+            // 
+            this.SubcategoryName.HeaderText = "Subcategoría";
+            this.SubcategoryName.Name = "SubcategoryName";
+            this.SubcategoryName.ReadOnly = true;
+            // 
             // productBindingSource
             // 
             this.productBindingSource.DataSource = typeof(DataAccess.Entities.Product);
@@ -441,49 +485,6 @@
             // 
             this.subcategoryBindingSource.DataSource = typeof(DataAccess.Entities.Subcategory);
             // 
-            // ProductId
-            // 
-            this.ProductId.DataPropertyName = "ProductId";
-            this.ProductId.HeaderText = "ProductId";
-            this.ProductId.Name = "ProductId";
-            this.ProductId.ReadOnly = true;
-            this.ProductId.Visible = false;
-            // 
-            // ProductName
-            // 
-            this.ProductName.DataPropertyName = "ProductName";
-            this.ProductName.HeaderText = "Producto";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            // 
-            // ProductDescription
-            // 
-            this.ProductDescription.DataPropertyName = "ProductDescription";
-            this.ProductDescription.HeaderText = "Descripción";
-            this.ProductDescription.Name = "ProductDescription";
-            this.ProductDescription.ReadOnly = true;
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "Precio";
-            this.Price.Name = "Price";
-            this.Price.ReadOnly = true;
-            this.Price.Width = 75;
-            // 
-            // Earns
-            // 
-            this.Earns.DataPropertyName = "Earns";
-            this.Earns.HeaderText = "Margen";
-            this.Earns.Name = "Earns";
-            this.Earns.ReadOnly = true;
-            // 
-            // SubcategoryName
-            // 
-            this.SubcategoryName.HeaderText = "Subcategoría";
-            this.SubcategoryName.Name = "SubcategoryName";
-            this.SubcategoryName.ReadOnly = true;
-            // 
             // errorInsertProduct
             // 
             this.errorInsertProduct.ContainerControl = this;
@@ -530,8 +531,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Products";
-            this.Text = "Products";
+            this.Text = "Productos";
             this.Load += new System.EventHandler(this.Products_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
