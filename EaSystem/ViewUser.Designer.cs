@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewUser));
             this.lbUser = new System.Windows.Forms.Label();
             this.txtUserSearch = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -82,10 +83,6 @@
             this.dataGridView1.TabIndex = 106;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AddUser);
             // 
-            // userBindingSource
-            // 
-            this.userBindingSource.DataSource = typeof(DataAccess.Entities.User);
-            // 
             // UserId
             // 
             this.UserId.DataPropertyName = "UserId";
@@ -98,6 +95,10 @@
             this.UserName.HeaderText = "Usuario";
             this.UserName.Name = "UserName";
             // 
+            // userBindingSource
+            // 
+            this.userBindingSource.DataSource = typeof(DataAccess.Entities.User);
+            // 
             // ViewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -107,6 +108,7 @@
             this.Controls.Add(this.txtUserSearch);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewUser";
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.FillUser);

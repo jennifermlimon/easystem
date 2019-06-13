@@ -29,12 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SellTickets));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtSearchBuy = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.dtBuyTickets = new System.Windows.Forms.DataGridView();
+            this.SellTicketId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SellTicketDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sellTicketBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btCleanInsert = new System.Windows.Forms.Button();
             this.btInsertBuy = new System.Windows.Forms.Button();
@@ -62,20 +68,15 @@
             this.errorUser = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorClient = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProduct = new System.Windows.Forms.ErrorProvider(this.components);
-            this.sellTicketBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.SellTicketId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SellTicketDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtBuyTickets)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sellTicketBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtSell)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sellTicketBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -104,18 +105,19 @@
             // 
             // txtSearchBuy
             // 
-            this.txtSearchBuy.Location = new System.Drawing.Point(146, 41);
+            this.txtSearchBuy.Location = new System.Drawing.Point(154, 41);
             this.txtSearchBuy.Name = "txtSearchBuy";
-            this.txtSearchBuy.Size = new System.Drawing.Size(136, 20);
+            this.txtSearchBuy.Size = new System.Drawing.Size(164, 20);
             this.txtSearchBuy.TabIndex = 7;
             this.txtSearchBuy.TextChanged += new System.EventHandler(this.searchTicket);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(88, 44);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 13);
+            this.label6.Size = new System.Drawing.Size(60, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "Buscador";
             // 
@@ -143,6 +145,38 @@
             this.dtBuyTickets.Name = "dtBuyTickets";
             this.dtBuyTickets.Size = new System.Drawing.Size(612, 245);
             this.dtBuyTickets.TabIndex = 4;
+            // 
+            // SellTicketId
+            // 
+            this.SellTicketId.DataPropertyName = "SellTicketId";
+            this.SellTicketId.HeaderText = "Código ";
+            this.SellTicketId.Name = "SellTicketId";
+            this.SellTicketId.Width = 150;
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "Precio";
+            this.Amount.Name = "Amount";
+            this.Amount.Width = 140;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Total";
+            this.Price.Name = "Price";
+            this.Price.Width = 140;
+            // 
+            // SellTicketDate
+            // 
+            this.SellTicketDate.DataPropertyName = "SellTicketDate";
+            this.SellTicketDate.HeaderText = "Fecha";
+            this.SellTicketDate.Name = "SellTicketDate";
+            this.SellTicketDate.Width = 140;
+            // 
+            // sellTicketBindingSource
+            // 
+            this.sellTicketBindingSource.DataSource = typeof(DataAccess.Entities.SellTicket);
             // 
             // tabPage2
             // 
@@ -214,9 +248,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(26, 280);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 13);
+            this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 35;
             this.label7.Text = "Fecha";
             // 
@@ -351,36 +386,40 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(23, 225);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 23;
             this.label4.Text = "Total";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(23, 168);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 22;
             this.label3.Text = "Importe";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(23, 114);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 21;
             this.label2.Text = "Cliente";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(23, 60);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 20;
             this.label1.Text = "Usuario";
             // 
@@ -396,57 +435,26 @@
             // 
             this.errorProduct.ContainerControl = this;
             // 
-            // sellTicketBindingSource
-            // 
-            this.sellTicketBindingSource.DataSource = typeof(DataAccess.Entities.SellTicket);
-            // 
-            // SellTicketId
-            // 
-            this.SellTicketId.DataPropertyName = "SellTicketId";
-            this.SellTicketId.HeaderText = "Código ";
-            this.SellTicketId.Name = "SellTicketId";
-            this.SellTicketId.Width = 150;
-            // 
-            // Amount
-            // 
-            this.Amount.DataPropertyName = "Amount";
-            this.Amount.HeaderText = "Precio";
-            this.Amount.Name = "Amount";
-            this.Amount.Width = 140;
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "Total";
-            this.Price.Name = "Price";
-            this.Price.Width = 140;
-            // 
-            // SellTicketDate
-            // 
-            this.SellTicketDate.DataPropertyName = "SellTicketDate";
-            this.SellTicketDate.HeaderText = "Fecha";
-            this.SellTicketDate.Name = "SellTicketDate";
-            this.SellTicketDate.Width = 140;
-            // 
             // SellTickets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SellTickets";
-            this.Text = "SellTickets";
+            this.Text = "Ventas";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtBuyTickets)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sellTicketBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtSell)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorClient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sellTicketBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

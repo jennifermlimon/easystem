@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Category));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lbId = new System.Windows.Forms.Label();
@@ -305,7 +306,7 @@
             // 
             this.CategoryName.DataPropertyName = "CategoryName";
             this.CategoryName.FillWeight = 200F;
-            this.CategoryName.HeaderText = "Categoria";
+            this.CategoryName.HeaderText = "Categoría";
             this.CategoryName.Name = "CategoryName";
             this.CategoryName.ReadOnly = true;
             this.CategoryName.Width = 200;
@@ -314,7 +315,7 @@
             // 
             this.CategoryDescription.DataPropertyName = "CategoryDescription";
             this.CategoryDescription.FillWeight = 400F;
-            this.CategoryDescription.HeaderText = "Descripcion";
+            this.CategoryDescription.HeaderText = "Descripción";
             this.CategoryDescription.Name = "CategoryDescription";
             this.CategoryDescription.ReadOnly = true;
             this.CategoryDescription.Width = 400;
@@ -325,8 +326,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Category";
-            this.Text = "Category";
+            this.Text = "Categorías";
             this.Load += new System.EventHandler(this.Category_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Subcategories));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.Subcategorías = new System.Windows.Forms.TabPage();
             this.comboSubcategory = new System.Windows.Forms.ComboBox();
@@ -113,7 +114,7 @@
             // comboSubcategory
             // 
             this.comboSubcategory.FormattingEnabled = true;
-            this.comboSubcategory.Location = new System.Drawing.Point(194, 138);
+            this.comboSubcategory.Location = new System.Drawing.Point(224, 133);
             this.comboSubcategory.Name = "comboSubcategory";
             this.comboSubcategory.Size = new System.Drawing.Size(263, 21);
             this.comboSubcategory.TabIndex = 91;
@@ -122,11 +123,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(74, 141);
+            this.label1.Location = new System.Drawing.Point(108, 141);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
+            this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 90;
-            this.label1.Text = "Categoria";
+            this.label1.Text = "Categoría";
             // 
             // lbId
             // 
@@ -173,7 +174,7 @@
             // 
             // txtSubcatgorySearch
             // 
-            this.txtSubcatgorySearch.Location = new System.Drawing.Point(164, 193);
+            this.txtSubcatgorySearch.Location = new System.Drawing.Point(194, 203);
             this.txtSubcatgorySearch.Name = "txtSubcatgorySearch";
             this.txtSubcatgorySearch.Size = new System.Drawing.Size(200, 20);
             this.txtSubcatgorySearch.TabIndex = 85;
@@ -183,7 +184,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(76, 196);
+            this.label17.Location = new System.Drawing.Point(108, 210);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(60, 13);
             this.label17.TabIndex = 84;
@@ -200,11 +201,11 @@
             this.SubcategoryDescription,
             this.Category});
             this.dtgridSubcatgory.DataSource = this.subcategoryBindingSource;
-            this.dtgridSubcatgory.Location = new System.Drawing.Point(79, 243);
+            this.dtgridSubcatgory.Location = new System.Drawing.Point(111, 239);
             this.dtgridSubcatgory.Name = "dtgridSubcatgory";
             this.dtgridSubcatgory.ReadOnly = true;
-            this.dtgridSubcatgory.Size = new System.Drawing.Size(644, 121);
-            this.dtgridSubcatgory.TabIndex = 83;         
+            this.dtgridSubcatgory.Size = new System.Drawing.Size(573, 121);
+            this.dtgridSubcatgory.TabIndex = 83;
             this.dtgridSubcatgory.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SubcategoryClick);
             // 
             // subcategoryBindingSource
@@ -213,7 +214,7 @@
             // 
             // txtSubcategoryDescripcion
             // 
-            this.txtSubcategoryDescripcion.Location = new System.Drawing.Point(194, 71);
+            this.txtSubcategoryDescripcion.Location = new System.Drawing.Point(224, 71);
             this.txtSubcategoryDescripcion.Multiline = true;
             this.txtSubcategoryDescripcion.Name = "txtSubcategoryDescripcion";
             this.txtSubcategoryDescripcion.Size = new System.Drawing.Size(263, 46);
@@ -223,7 +224,7 @@
             // 
             this.lbDescription.AutoSize = true;
             this.lbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDescription.Location = new System.Drawing.Point(71, 74);
+            this.lbDescription.Location = new System.Drawing.Point(108, 74);
             this.lbDescription.Name = "lbDescription";
             this.lbDescription.Size = new System.Drawing.Size(74, 13);
             this.lbDescription.TabIndex = 81;
@@ -231,7 +232,7 @@
             // 
             // txtSubcategoryName
             // 
-            this.txtSubcategoryName.Location = new System.Drawing.Point(194, 23);
+            this.txtSubcategoryName.Location = new System.Drawing.Point(224, 25);
             this.txtSubcategoryName.Name = "txtSubcategoryName";
             this.txtSubcategoryName.Size = new System.Drawing.Size(263, 20);
             this.txtSubcategoryName.TabIndex = 80;
@@ -240,7 +241,7 @@
             // 
             this.lbSubcategory.AutoSize = true;
             this.lbSubcategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbSubcategory.Location = new System.Drawing.Point(71, 26);
+            this.lbSubcategory.Location = new System.Drawing.Point(108, 25);
             this.lbSubcategory.Name = "lbSubcategory";
             this.lbSubcategory.Size = new System.Drawing.Size(77, 13);
             this.lbSubcategory.TabIndex = 79;
@@ -267,7 +268,7 @@
             // comboInsert
             // 
             this.comboInsert.FormattingEnabled = true;
-            this.comboInsert.Location = new System.Drawing.Point(319, 202);
+            this.comboInsert.Location = new System.Drawing.Point(319, 249);
             this.comboInsert.Name = "comboInsert";
             this.comboInsert.Size = new System.Drawing.Size(263, 21);
             this.comboInsert.TabIndex = 93;
@@ -276,7 +277,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(199, 205);
+            this.label4.Location = new System.Drawing.Point(196, 252);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 92;
@@ -285,7 +286,7 @@
             // btCleanSubcatgory
             // 
             this.btCleanSubcatgory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btCleanSubcatgory.Location = new System.Drawing.Point(427, 310);
+            this.btCleanSubcatgory.Location = new System.Drawing.Point(430, 348);
             this.btCleanSubcatgory.Name = "btCleanSubcatgory";
             this.btCleanSubcatgory.Size = new System.Drawing.Size(75, 23);
             this.btCleanSubcatgory.TabIndex = 83;
@@ -296,7 +297,7 @@
             // btInsertSubcategory
             // 
             this.btInsertSubcategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btInsertSubcategory.Location = new System.Drawing.Point(299, 310);
+            this.btInsertSubcategory.Location = new System.Drawing.Point(292, 348);
             this.btInsertSubcategory.Name = "btInsertSubcategory";
             this.btInsertSubcategory.Size = new System.Drawing.Size(75, 23);
             this.btInsertSubcategory.TabIndex = 82;
@@ -306,7 +307,7 @@
             // 
             // txtInsertarSubDescripcion
             // 
-            this.txtInsertarSubDescripcion.Location = new System.Drawing.Point(319, 114);
+            this.txtInsertarSubDescripcion.Location = new System.Drawing.Point(319, 149);
             this.txtInsertarSubDescripcion.Multiline = true;
             this.txtInsertarSubDescripcion.Name = "txtInsertarSubDescripcion";
             this.txtInsertarSubDescripcion.Size = new System.Drawing.Size(263, 54);
@@ -316,7 +317,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(196, 117);
+            this.label2.Location = new System.Drawing.Point(196, 152);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 13);
             this.label2.TabIndex = 80;
@@ -324,7 +325,7 @@
             // 
             // txtInsertarSubcategoria
             // 
-            this.txtInsertarSubcategoria.Location = new System.Drawing.Point(319, 57);
+            this.txtInsertarSubcategoria.Location = new System.Drawing.Point(319, 72);
             this.txtInsertarSubcategoria.Name = "txtInsertarSubcategoria";
             this.txtInsertarSubcategoria.Size = new System.Drawing.Size(263, 20);
             this.txtInsertarSubcategoria.TabIndex = 79;
@@ -333,7 +334,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(196, 57);
+            this.label3.Location = new System.Drawing.Point(196, 72);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 13);
             this.label3.TabIndex = 78;
@@ -375,7 +376,7 @@
             // SubcategoryName
             // 
             this.SubcategoryName.DataPropertyName = "SubcategoryName";
-            this.SubcategoryName.HeaderText = "Subcategoria";
+            this.SubcategoryName.HeaderText = "Subcategoría";
             this.SubcategoryName.Name = "SubcategoryName";
             this.SubcategoryName.ReadOnly = true;
             this.SubcategoryName.Width = 180;
@@ -383,10 +384,10 @@
             // SubcategoryDescription
             // 
             this.SubcategoryDescription.DataPropertyName = "SubcategoryDescription";
-            this.SubcategoryDescription.HeaderText = "Descripcion";
+            this.SubcategoryDescription.HeaderText = "Descripción";
             this.SubcategoryDescription.Name = "SubcategoryDescription";
             this.SubcategoryDescription.ReadOnly = true;
-            this.SubcategoryDescription.Width = 200;
+            this.SubcategoryDescription.Width = 250;
             // 
             // Category
             // 
@@ -400,8 +401,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Subcategories";
-            this.Text = "Subcategories";
+            this.Text = "Subcategorías";
             this.Load += new System.EventHandler(this.Subcategories_Load);
             this.tabControl1.ResumeLayout(false);
             this.Subcategorías.ResumeLayout(false);

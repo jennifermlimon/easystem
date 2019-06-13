@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Suppliers));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtSearchSupplier = new System.Windows.Forms.TextBox();
@@ -38,6 +39,13 @@
             this.btCleanSupplier = new System.Windows.Forms.Button();
             this.btUpdateSupplier = new System.Windows.Forms.Button();
             this.dtgridSupplier = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SupplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cif = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtAddressSupplier = new System.Windows.Forms.TextBox();
             this.txtMailSupplier = new System.Windows.Forms.TextBox();
             this.txtCIF = new System.Windows.Forms.TextBox();
@@ -71,16 +79,10 @@
             this.errorUpdateCif = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorUpdateEmail = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorUpdateAddress = new System.Windows.Forms.ErrorProvider(this.components);
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SupplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Phone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cif = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Mail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Address = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgridSupplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorCif)).BeginInit();
@@ -92,7 +94,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorUpdateCif)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorUpdateEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorUpdateAddress)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -211,6 +212,57 @@
             this.dtgridSupplier.Size = new System.Drawing.Size(644, 121);
             this.dtgridSupplier.TabIndex = 79;
             this.dtgridSupplier.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.setSupplier);
+            // 
+            // Id
+            // 
+            this.Id.DataPropertyName = "SupplierId";
+            this.Id.HeaderText = "SupplierId";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            // 
+            // SupplierName
+            // 
+            this.SupplierName.DataPropertyName = "SupplierName";
+            this.SupplierName.FillWeight = 180F;
+            this.SupplierName.HeaderText = "Proveedor";
+            this.SupplierName.Name = "SupplierName";
+            this.SupplierName.ReadOnly = true;
+            this.SupplierName.Width = 180;
+            // 
+            // Phone
+            // 
+            this.Phone.DataPropertyName = "SupplierTelephone";
+            this.Phone.HeaderText = "Telefono";
+            this.Phone.Name = "Phone";
+            this.Phone.ReadOnly = true;
+            // 
+            // Cif
+            // 
+            this.Cif.DataPropertyName = "SupplierCif";
+            this.Cif.HeaderText = "Cif";
+            this.Cif.Name = "Cif";
+            this.Cif.ReadOnly = true;
+            // 
+            // Mail
+            // 
+            this.Mail.DataPropertyName = "SupplierEmail";
+            this.Mail.HeaderText = "Email";
+            this.Mail.Name = "Mail";
+            this.Mail.ReadOnly = true;
+            // 
+            // Address
+            // 
+            this.Address.DataPropertyName = "SupplierAdress";
+            this.Address.FillWeight = 120F;
+            this.Address.HeaderText = "Direccion";
+            this.Address.Name = "Address";
+            this.Address.ReadOnly = true;
+            this.Address.Width = 120;
+            // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataSource = typeof(DataAccess.Entities.Supplier);
             // 
             // txtAddressSupplier
             // 
@@ -466,70 +518,21 @@
             // 
             this.errorUpdateAddress.ContainerControl = this;
             // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataSource = typeof(DataAccess.Entities.Supplier);
-            // 
-            // Id
-            // 
-            this.Id.DataPropertyName = "SupplierId";
-            this.Id.HeaderText = "SupplierId";
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            // 
-            // SupplierName
-            // 
-            this.SupplierName.DataPropertyName = "SupplierName";
-            this.SupplierName.FillWeight = 180F;
-            this.SupplierName.HeaderText = "Proveedor";
-            this.SupplierName.Name = "SupplierName";
-            this.SupplierName.ReadOnly = true;
-            this.SupplierName.Width = 180;
-            // 
-            // Phone
-            // 
-            this.Phone.DataPropertyName = "SupplierTelephone";
-            this.Phone.HeaderText = "Telefono";
-            this.Phone.Name = "Phone";
-            this.Phone.ReadOnly = true;
-            // 
-            // Cif
-            // 
-            this.Cif.DataPropertyName = "SupplierCif";
-            this.Cif.HeaderText = "Cif";
-            this.Cif.Name = "Cif";
-            this.Cif.ReadOnly = true;
-            // 
-            // Mail
-            // 
-            this.Mail.DataPropertyName = "SupplierEmail";
-            this.Mail.HeaderText = "Email";
-            this.Mail.Name = "Mail";
-            this.Mail.ReadOnly = true;
-            // 
-            // Address
-            // 
-            this.Address.DataPropertyName = "SupplierAdress";
-            this.Address.FillWeight = 120F;
-            this.Address.HeaderText = "Direccion";
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            this.Address.Width = 120;
-            // 
             // Suppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Suppliers";
-            this.Text = "Suppliers";
+            this.Text = "Proveedores";
             this.Load += new System.EventHandler(this.Suppliers_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgridSupplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorName)).EndInit();
@@ -542,7 +545,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.errorUpdateCif)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorUpdateEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorUpdateAddress)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

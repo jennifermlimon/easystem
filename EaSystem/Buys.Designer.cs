@@ -29,12 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Buys));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txtSearchBuy = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.dtBuyTickets = new System.Windows.Forms.DataGridView();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyTicketId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BuyTicketDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buyTicketBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btCleanInsert = new System.Windows.Forms.Button();
@@ -63,10 +68,6 @@
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.categoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyTicketId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BuyTicketDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.errorUser = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorSupplier = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorAdd = new System.Windows.Forms.ErrorProvider(this.components);
@@ -110,18 +111,19 @@
             // 
             // txtSearchBuy
             // 
-            this.txtSearchBuy.Location = new System.Drawing.Point(148, 50);
+            this.txtSearchBuy.Location = new System.Drawing.Point(156, 50);
             this.txtSearchBuy.Name = "txtSearchBuy";
-            this.txtSearchBuy.Size = new System.Drawing.Size(136, 20);
+            this.txtSearchBuy.Size = new System.Drawing.Size(160, 20);
             this.txtSearchBuy.TabIndex = 3;
             this.txtSearchBuy.TextChanged += new System.EventHandler(this.SearchBuyTicket);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(90, 53);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 13);
+            this.label6.Size = new System.Drawing.Size(60, 13);
             this.label6.TabIndex = 2;
             this.label6.Text = "Buscador";
             // 
@@ -149,6 +151,34 @@
             this.dtBuyTickets.Name = "dtBuyTickets";
             this.dtBuyTickets.Size = new System.Drawing.Size(612, 245);
             this.dtBuyTickets.TabIndex = 0;
+            // 
+            // Price
+            // 
+            this.Price.DataPropertyName = "Price";
+            this.Price.HeaderText = "Importe";
+            this.Price.Name = "Price";
+            this.Price.Width = 140;
+            // 
+            // BuyTicketId
+            // 
+            this.BuyTicketId.DataPropertyName = "BuyTicketId";
+            this.BuyTicketId.HeaderText = "Código Ticket";
+            this.BuyTicketId.Name = "BuyTicketId";
+            this.BuyTicketId.Width = 140;
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "Total";
+            this.Amount.Name = "Amount";
+            this.Amount.Width = 140;
+            // 
+            // BuyTicketDate
+            // 
+            this.BuyTicketDate.DataPropertyName = "BuyTicketDate";
+            this.BuyTicketDate.HeaderText = "Fecha de Compra";
+            this.BuyTicketDate.Name = "BuyTicketDate";
+            this.BuyTicketDate.Width = 150;
             // 
             // buyTicketBindingSource
             // 
@@ -224,9 +254,10 @@
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(23, 265);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 13);
+            this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 15;
             this.label7.Text = "Fecha";
             // 
@@ -361,36 +392,40 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(20, 210);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.Size = new System.Drawing.Size(36, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Total";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(20, 153);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Importe";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(20, 99);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(65, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Proveedor";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(20, 45);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuario";
             // 
@@ -401,34 +436,6 @@
             // categoryBindingSource
             // 
             this.categoryBindingSource.DataSource = typeof(DataAccess.Entities.Category);
-            // 
-            // Price
-            // 
-            this.Price.DataPropertyName = "Price";
-            this.Price.HeaderText = "Importe";
-            this.Price.Name = "Price";
-            this.Price.Width = 140;
-            // 
-            // BuyTicketId
-            // 
-            this.BuyTicketId.DataPropertyName = "BuyTicketId";
-            this.BuyTicketId.HeaderText = "Código Ticket";
-            this.BuyTicketId.Name = "BuyTicketId";
-            this.BuyTicketId.Width = 140;
-            // 
-            // Amount
-            // 
-            this.Amount.DataPropertyName = "Amount";
-            this.Amount.HeaderText = "Total";
-            this.Amount.Name = "Amount";
-            this.Amount.Width = 140;
-            // 
-            // BuyTicketDate
-            // 
-            this.BuyTicketDate.DataPropertyName = "BuyTicketDate";
-            this.BuyTicketDate.HeaderText = "Fecha de Compra";
-            this.BuyTicketDate.Name = "BuyTicketDate";
-            this.BuyTicketDate.Width = 150;
             // 
             // errorUser
             // 
@@ -448,8 +455,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Buys";
-            this.Text = "Buys";
+            this.Text = "Compras";
             this.Load += new System.EventHandler(this.Buys_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

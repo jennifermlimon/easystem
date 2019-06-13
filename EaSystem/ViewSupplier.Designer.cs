@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewSupplier));
             this.label1 = new System.Windows.Forms.Label();
             this.txtProductSearch = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.SupplierId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SupplierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.supplierBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -43,11 +44,12 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(113, 25);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(99, 22);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 105;
-            this.label1.Text = "label1";
+            this.label1.Text = "Proveedores";
             // 
             // txtProductSearch
             // 
@@ -81,10 +83,6 @@
             this.dataGridView1.TabIndex = 102;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AddSuppliersToList);
             // 
-            // supplierBindingSource
-            // 
-            this.supplierBindingSource.DataSource = typeof(DataAccess.Entities.Supplier);
-            // 
             // SupplierId
             // 
             this.SupplierId.DataPropertyName = "SupplierId";
@@ -97,6 +95,10 @@
             this.SupplierName.HeaderText = "Proveedor";
             this.SupplierName.Name = "SupplierName";
             // 
+            // supplierBindingSource
+            // 
+            this.supplierBindingSource.DataSource = typeof(DataAccess.Entities.Supplier);
+            // 
             // ViewSupplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,8 +108,9 @@
             this.Controls.Add(this.txtProductSearch);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ViewSupplier";
-            this.Text = "ViewSupplier";
+            this.Text = "Vista Proveedores";
             this.Load += new System.EventHandler(this.ViewSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierBindingSource)).EndInit();

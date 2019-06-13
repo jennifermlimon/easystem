@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Users));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.lbId = new System.Windows.Forms.Label();
@@ -38,6 +39,9 @@
             this.txtUserSearch = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.dtgridUser = new System.Windows.Forms.DataGridView();
+            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UserPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.txtUserPassword = new System.Windows.Forms.TextBox();
             this.lbPassword = new System.Windows.Forms.Label();
@@ -54,9 +58,6 @@
             this.errorPassword = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorUpdateUser = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorUpdatePassword = new System.Windows.Forms.ErrorProvider(this.components);
-            this.UserId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UserPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgridUser)).BeginInit();
@@ -112,7 +113,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(347, 378);
+            this.button3.Location = new System.Drawing.Point(329, 367);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 88;
@@ -123,7 +124,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(465, 378);
+            this.button2.Location = new System.Drawing.Point(451, 367);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 87;
@@ -134,7 +135,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(222, 378);
+            this.button1.Location = new System.Drawing.Point(206, 367);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 86;
@@ -144,7 +145,7 @@
             // 
             // txtUserSearch
             // 
-            this.txtUserSearch.Location = new System.Drawing.Point(162, 192);
+            this.txtUserSearch.Location = new System.Drawing.Point(298, 180);
             this.txtUserSearch.Name = "txtUserSearch";
             this.txtUserSearch.Size = new System.Drawing.Size(200, 20);
             this.txtUserSearch.TabIndex = 85;
@@ -154,7 +155,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(74, 195);
+            this.label17.Location = new System.Drawing.Point(192, 186);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(60, 13);
             this.label17.TabIndex = 84;
@@ -170,12 +171,36 @@
             this.UserName,
             this.UserPassword});
             this.dtgridUser.DataSource = this.userBindingSource;
-            this.dtgridUser.Location = new System.Drawing.Point(77, 233);
+            this.dtgridUser.Location = new System.Drawing.Point(195, 216);
             this.dtgridUser.Name = "dtgridUser";
             this.dtgridUser.ReadOnly = true;
-            this.dtgridUser.Size = new System.Drawing.Size(644, 121);
+            this.dtgridUser.Size = new System.Drawing.Size(345, 121);
             this.dtgridUser.TabIndex = 83;
             this.dtgridUser.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ClickUser);
+            // 
+            // UserId
+            // 
+            this.UserId.DataPropertyName = "UserId";
+            this.UserId.HeaderText = "UserId";
+            this.UserId.Name = "UserId";
+            this.UserId.ReadOnly = true;
+            this.UserId.Visible = false;
+            // 
+            // UserName
+            // 
+            this.UserName.DataPropertyName = "UserName";
+            this.UserName.HeaderText = "Usuario";
+            this.UserName.Name = "UserName";
+            this.UserName.ReadOnly = true;
+            this.UserName.Width = 300;
+            // 
+            // UserPassword
+            // 
+            this.UserPassword.DataPropertyName = "UserPassword";
+            this.UserPassword.HeaderText = "UserPassword";
+            this.UserPassword.Name = "UserPassword";
+            this.UserPassword.ReadOnly = true;
+            this.UserPassword.Visible = false;
             // 
             // userBindingSource
             // 
@@ -183,18 +208,18 @@
             // 
             // txtUserPassword
             // 
-            this.txtUserPassword.Location = new System.Drawing.Point(277, 116);
+            this.txtUserPassword.Location = new System.Drawing.Point(298, 105);
             this.txtUserPassword.Multiline = true;
             this.txtUserPassword.Name = "txtUserPassword";
             this.txtUserPassword.PasswordChar = '*';
-            this.txtUserPassword.Size = new System.Drawing.Size(263, 21);
+            this.txtUserPassword.Size = new System.Drawing.Size(242, 21);
             this.txtUserPassword.TabIndex = 82;
             // 
             // lbPassword
             // 
             this.lbPassword.AutoSize = true;
             this.lbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbPassword.Location = new System.Drawing.Point(154, 124);
+            this.lbPassword.Location = new System.Drawing.Point(192, 108);
             this.lbPassword.Name = "lbPassword";
             this.lbPassword.Size = new System.Drawing.Size(71, 13);
             this.lbPassword.TabIndex = 81;
@@ -202,16 +227,16 @@
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(277, 63);
+            this.txtUserName.Location = new System.Drawing.Point(298, 44);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(263, 20);
+            this.txtUserName.Size = new System.Drawing.Size(242, 20);
             this.txtUserName.TabIndex = 80;
             // 
             // lbCategory
             // 
             this.lbCategory.AutoSize = true;
             this.lbCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCategory.Location = new System.Drawing.Point(154, 66);
+            this.lbCategory.Location = new System.Drawing.Point(192, 47);
             this.lbCategory.Name = "lbCategory";
             this.lbCategory.Size = new System.Drawing.Size(50, 13);
             this.lbCategory.TabIndex = 79;
@@ -307,38 +332,15 @@
             // 
             this.errorUpdatePassword.ContainerControl = this;
             // 
-            // UserId
-            // 
-            this.UserId.DataPropertyName = "UserId";
-            this.UserId.HeaderText = "UserId";
-            this.UserId.Name = "UserId";
-            this.UserId.ReadOnly = true;
-            this.UserId.Visible = false;
-            // 
-            // UserName
-            // 
-            this.UserName.DataPropertyName = "UserName";
-            this.UserName.HeaderText = "Usuario";
-            this.UserName.Name = "UserName";
-            this.UserName.ReadOnly = true;
-            this.UserName.Width = 300;
-            // 
-            // UserPassword
-            // 
-            this.UserPassword.DataPropertyName = "UserPassword";
-            this.UserPassword.HeaderText = "UserPassword";
-            this.UserPassword.Name = "UserPassword";
-            this.UserPassword.ReadOnly = true;
-            this.UserPassword.Visible = false;
-            // 
             // Users
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Users";
-            this.Text = "Users";
+            this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.Users_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

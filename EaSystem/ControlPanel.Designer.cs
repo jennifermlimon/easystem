@@ -99,28 +99,28 @@
             // categoríasToolStripMenuItem
             // 
             this.categoríasToolStripMenuItem.Name = "categoríasToolStripMenuItem";
-            this.categoríasToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.categoríasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.categoríasToolStripMenuItem.Text = "Categorías";
             this.categoríasToolStripMenuItem.Click += new System.EventHandler(this.categoríasToolStripMenuItem_Click);
             // 
             // subcategoríasToolStripMenuItem
             // 
             this.subcategoríasToolStripMenuItem.Name = "subcategoríasToolStripMenuItem";
-            this.subcategoríasToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.subcategoríasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.subcategoríasToolStripMenuItem.Text = "Subcategorías";
             this.subcategoríasToolStripMenuItem.Click += new System.EventHandler(this.subcategoríasToolStripMenuItem_Click);
             // 
             // productosToolStripMenuItem
             // 
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.productosToolStripMenuItem.Text = "Productos";
             this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
             // almacenToolStripMenuItem
             // 
             this.almacenToolStripMenuItem.Name = "almacenToolStripMenuItem";
-            this.almacenToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.almacenToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.almacenToolStripMenuItem.Text = "Almacén";
             this.almacenToolStripMenuItem.Click += new System.EventHandler(this.almacenToolStripMenuItem_Click);
             // 
@@ -166,7 +166,7 @@
             // 
             this.historicoDeCajasToolStripMenuItem.Name = "historicoDeCajasToolStripMenuItem";
             this.historicoDeCajasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.historicoDeCajasToolStripMenuItem.Text = "Historico de Cajas";
+            this.historicoDeCajasToolStripMenuItem.Text = "Histórico de Cajas";
             // 
             // cajaActualToolStripMenuItem
             // 
@@ -225,9 +225,10 @@
             this.Controls.Add(this.userName);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ControlPanel";
-            this.Text = "ControlPanel";
+            this.Text = "Panel de Control";
             this.Load += new System.EventHandler(this.ControlPanel_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
