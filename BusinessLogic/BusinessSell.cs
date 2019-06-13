@@ -37,6 +37,15 @@ namespace BusinessLogic
                         CashierId =  currentCashier?.CashierId
                     };
 
+
+                    if (currentCashier != null && !currentCashier.Close)
+                    {
+                        _context.SellTickets.Add(virtualTicket);
+                        currentCashier.Amount = currentCashier.Amount + Convert.ToDouble(sellTicket.Price);
+                        currentCashier.ToBank = currentCashier.Amount - 100;
+                        _context.SaveChanges();
+                    }
+
                     foreach (var item in sellTicket.Products)
                     {
                         Stock stock = _context.Stocks.Where(x => x.ProductId.Equals(item.ProductId)).FirstOrDefault();
@@ -45,13 +54,6 @@ namespace BusinessLogic
 
                         Product product = _context.Products.Find(item.ProductId);
                         if (product != null) product.Quantity--;
-                        _context.SaveChanges();
-                    }
-
-                    if (currentCashier!= null && !currentCashier.Close)
-                    {
-                        _context.SellTickets.Add(virtualTicket);
-                        currentCashier.Amount = currentCashier.Amount + Convert.ToDouble(sellTicket.Price);
                         _context.SaveChanges();
                     }
                 }
@@ -136,6 +138,14 @@ namespace BusinessLogic
 
                 return sellTickets;
             }
+        }
+
+        // Método para cargar ventas por Id de caja
+
+        public static IEnumerable<SellTicket> GetSellTicketsByCashierId (Guid cashierId)
+        {
+            Model _context = new Model();
+            return _context.SellTickets.Where(t => t.CashierId == cashierId);
         }
 
         #endregion

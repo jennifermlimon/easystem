@@ -27,6 +27,9 @@ namespace BusinessLogic
                     CashierId = Guid.NewGuid(),
                     OpenDateTime = DateTime.Now,
                     Close = false,
+                    CloseDateTime = null,
+                    Amount = 100,
+                    ToBank = 0
                 };
 
                 _context.Cashiers.Add(cashier);
@@ -35,16 +38,20 @@ namespace BusinessLogic
                 return cashier;
             }
             catch (DbEntityValidationException e)
-            {
-                return null;
+            {               
                 throw new DbEntityValidationException(e.ToString());
             }
-            catch (Exception e)
-            {
-                return null;
-                throw new Exception(e.ToString());
+            catch (ArgumentException e)
+            {                
+                throw new ArgumentException("Ya existe una caja abierta");               
             }
 
+        }
+
+        public static Cashier GetCurrentCashier()
+        {
+            Model _context = new Model();
+            return  _context.Cashiers.FirstOrDefault(x => x.Close == false);
         }
     }
 }

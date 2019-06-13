@@ -138,6 +138,14 @@
     <Compile Include="Migrations\201906102056592_updateSell.Designer.cs">
       <DependentUpon>201906102056592_updateSell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906121009118_AddCashier.cs" />
+    <Compile Include="Migrations\201906121009118_AddCashier.Designer.cs">
+      <DependentUpon>201906121009118_AddCashier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201906121012272_ChangeDateCloseCashier.cs" />
+    <Compile Include="Migrations\201906121012272_ChangeDateCloseCashier.Designer.cs">
+      <DependentUpon>201906121012272_ChangeDateCloseCashier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -206,6 +214,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201906102056592_updateSell.resx">
       <DependentUpon>201906102056592_updateSell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906121009118_AddCashier.resx">
+      <DependentUpon>201906121009118_AddCashier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906121012272_ChangeDateCloseCashier.resx">
+      <DependentUpon>201906121012272_ChangeDateCloseCashier.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -92,18 +92,33 @@ namespace EaSystem
             try
             {
                 Cashier cashier = BusinessCashier.OpenCashier();
-                if (cashier == null) { MessageBox.Show("Error abriendo la caja"); }
+                if (cashier == null) { MessageBox.Show("Error abriendo la caja, inténtelo de nuevo"); }
                 else
                 {
                     CurrentCashier currentCashier = new CurrentCashier {MdiParent = this.MdiParent};
                     currentCashier.Show();
                 }
             }
-            catch (ArgumentException exception)
+            catch (ArgumentException ex)
             {
-                MessageBox.Show(e.ToString());
+                MessageBox.Show(ex.Message);
             }
           
+        }
+
+        private void cajaActualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Cashier cashier = BusinessCashier.GetCurrentCashier();
+            if(cashier != null)
+            {
+                CurrentCashier currentCashier = new CurrentCashier { MdiParent = this.MdiParent };
+                currentCashier.Show();
+            }
+            else
+            {
+                MessageBox.Show("Debe abrir una nueva caja");
+            }
+           
         }
     }
 }

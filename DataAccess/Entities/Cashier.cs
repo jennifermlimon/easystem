@@ -7,7 +7,7 @@ namespace DataAccess.Entities
     {
         public Guid CashierId { get; set; }
         public DateTime OpenDateTime { get; set; }
-        public DateTime CloseDateTime { get; set; }
+        public DateTime? CloseDateTime { get; set; }
         public bool Close { get; set; }
         public double Amount { get; set; }
         public int Remaining => 100;

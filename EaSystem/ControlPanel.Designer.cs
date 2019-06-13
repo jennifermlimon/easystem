@@ -173,6 +173,7 @@
             this.cajaActualToolStripMenuItem.Name = "cajaActualToolStripMenuItem";
             this.cajaActualToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cajaActualToolStripMenuItem.Text = "Caja Actual";
+            this.cajaActualToolStripMenuItem.Click += new System.EventHandler(this.cajaActualToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
