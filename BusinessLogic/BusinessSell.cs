@@ -21,7 +21,7 @@ namespace BusinessLogic
             {
                 using (Model _context = new Model())
                 {
-                    IEnumerable<Cashier> cashiers = _context.Cashiers.ToList();
+                    IEnumerable<Cashier> cashiers = _context.Cashiers.Where(x=>x.Close==false).ToList();
                     Cashier currentCashier = cashiers.FirstOrDefault();
 
                     if (!cashiers.Any()) return false;

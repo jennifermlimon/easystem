@@ -24,11 +24,19 @@ namespace EaSystem
         private void CurrentCashier_Load(object sender, EventArgs e)
         {
             Cashier currentCashier = BusinessCashier.GetCurrentCashier();
-            this.dtViewTickets.DataSource = BusinessSell.GetSellTicketsByCashierId(currentCashier.CashierId).ToList();
-            this.txtAmount.Text = currentCashier.Amount.ToString();
-            this.txtToBank.Text = currentCashier.ToBank.ToString();
-            this.dateTimePicker1.Text = currentCashier.OpenDateTime.ToString();
-            this.lbIdCashier.Text = currentCashier.CashierId.ToString();
+            if (currentCashier != null)
+            {
+                this.dtViewTickets.DataSource = BusinessSell.GetSellTicketsByCashierId(currentCashier.CashierId).ToList();
+                this.txtAmount.Text = currentCashier.Amount.ToString();
+                this.txtToBank.Text = currentCashier.ToBank.ToString();
+                this.dateTimePicker1.Text = currentCashier.OpenDateTime.ToString();
+                this.lbIdCashier.Text = currentCashier.CashierId.ToString();
+            }
+            else
+            {
+                MessageBox.Show("No existe una caja abierta, ábrala por favor");
+            }
+
         }
       
         // Método que cierra la caja

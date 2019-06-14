@@ -131,8 +131,16 @@ namespace EaSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            CurrentCashier cashier = new CurrentCashier { MdiParent = this.MdiParent };
-            cashier.Show();
+            Cashier currentCashier = BusinessCashier.GetCurrentCashier();
+            if (currentCashier != null)
+            {
+                CurrentCashier cashier = new CurrentCashier { MdiParent = this.MdiParent };
+                cashier.Show();
+            }
+            else
+            {
+                MessageBox.Show("Debe abrir una nueva caja");
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -209,6 +217,12 @@ namespace EaSystem
         private void ToolExit(object sender, EventArgs e)
         {
             this.toolExit.Show("Salir de la App", this.button8);
+        }
+
+        private void historicoDeCajasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AllCashiers allCashiers = new AllCashiers() { MdiParent = this.MdiParent };
+            allCashiers.Show();
         }
     }
 }

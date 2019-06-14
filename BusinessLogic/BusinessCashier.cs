@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccess;
@@ -74,6 +75,25 @@ namespace BusinessLogic
             return false;
         }
 
+        // Método para obtener todas las cajas
+
+        public static IEnumerable<Cashier> GetAllCashiers()
+        {
+            Model _context = new Model();
+            return _context.Cashiers;
+        }
+
+   
+      public static IEnumerable<Cashier> SearchCashiers(string search)
+        {
+            using (Model _context = new Model())
+            {
+                IEnumerable<Cashier> cashiers = _context.Cashiers.Where(x => x.CashierId.ToString().StartsWith(search)
+                                                                             || x.OpenDateTime.ToString().Contains(search)).ToList();
+                return cashiers;
+            }
+        }
+
         // Método para comprobar si la caja se ha cerrado
 
         private static bool CheckCashier(Guid cashierId)
@@ -86,5 +106,7 @@ namespace BusinessLogic
             }
             return false;
         }
+
+
     }
 }

@@ -41,8 +41,8 @@ namespace EaSystem
 
         private void CleanInsertFields()
         {
-            this.txtUserName.Text = string.Empty;
-            this.txtUserPassword.Text = string.Empty;
+            this.txtInsertUser.Text = string.Empty;
+            this.txtInsertPassword.Text = string.Empty;
         }
 
         // Método que dehabilita los campos
@@ -191,6 +191,8 @@ namespace EaSystem
                 MessageBox.Show("Selecciona una fila");
             }
         }
+
+        //Método para insertar usuario
 
         private void btInsert_Click(object sender, EventArgs e)
         {

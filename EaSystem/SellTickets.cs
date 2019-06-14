@@ -234,5 +234,10 @@ namespace EaSystem
         {
             this.dtBuyTickets.DataSource = BusinessSell.SearchSellTickets(this.txtSearchBuy.Text);
         }
+
+        private void SellTickets_Load(object sender, EventArgs e)
+        {
+            this.dtBuyTickets.DataSource = BusinessSell.GetAllSellTickets().ToList();
+        }
     }
 }

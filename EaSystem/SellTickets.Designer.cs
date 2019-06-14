@@ -36,11 +36,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.dtBuyTickets = new System.Windows.Forms.DataGridView();
-            this.SellTicketId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SellTicketDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sellTicketBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btCleanInsert = new System.Windows.Forms.Button();
             this.btInsertBuy = new System.Windows.Forms.Button();
@@ -68,15 +64,19 @@
             this.errorUser = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorClient = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProduct = new System.Windows.Forms.ErrorProvider(this.components);
+            this.SellTicketId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SellTicketDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sellTicketBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtBuyTickets)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sellTicketBindingSource)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtSell)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sellTicketBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -146,37 +146,12 @@
             this.dtBuyTickets.Size = new System.Drawing.Size(612, 245);
             this.dtBuyTickets.TabIndex = 4;
             // 
-            // SellTicketId
-            // 
-            this.SellTicketId.DataPropertyName = "SellTicketId";
-            this.SellTicketId.HeaderText = "Código ";
-            this.SellTicketId.Name = "SellTicketId";
-            this.SellTicketId.Width = 150;
-            // 
-            // Amount
-            // 
-            this.Amount.DataPropertyName = "Amount";
-            this.Amount.HeaderText = "Precio";
-            this.Amount.Name = "Amount";
-            this.Amount.Width = 140;
-            // 
             // Price
             // 
             this.Price.DataPropertyName = "Price";
             this.Price.HeaderText = "Total";
             this.Price.Name = "Price";
             this.Price.Width = 140;
-            // 
-            // SellTicketDate
-            // 
-            this.SellTicketDate.DataPropertyName = "SellTicketDate";
-            this.SellTicketDate.HeaderText = "Fecha";
-            this.SellTicketDate.Name = "SellTicketDate";
-            this.SellTicketDate.Width = 140;
-            // 
-            // sellTicketBindingSource
-            // 
-            this.sellTicketBindingSource.DataSource = typeof(DataAccess.Entities.SellTicket);
             // 
             // tabPage2
             // 
@@ -435,6 +410,31 @@
             // 
             this.errorProduct.ContainerControl = this;
             // 
+            // SellTicketId
+            // 
+            this.SellTicketId.DataPropertyName = "SellTicketId";
+            this.SellTicketId.HeaderText = "Código ";
+            this.SellTicketId.Name = "SellTicketId";
+            this.SellTicketId.Width = 150;
+            // 
+            // Amount
+            // 
+            this.Amount.DataPropertyName = "Amount";
+            this.Amount.HeaderText = "Precio";
+            this.Amount.Name = "Amount";
+            this.Amount.Width = 140;
+            // 
+            // SellTicketDate
+            // 
+            this.SellTicketDate.DataPropertyName = "SellTicketDate";
+            this.SellTicketDate.HeaderText = "Fecha";
+            this.SellTicketDate.Name = "SellTicketDate";
+            this.SellTicketDate.Width = 140;
+            // 
+            // sellTicketBindingSource
+            // 
+            this.sellTicketBindingSource.DataSource = typeof(DataAccess.Entities.SellTicket);
+            // 
             // SellTickets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -444,17 +444,18 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SellTickets";
             this.Text = "Ventas";
+            this.Load += new System.EventHandler(this.SellTickets_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtBuyTickets)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sellTicketBindingSource)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtSell)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorClient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sellTicketBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
