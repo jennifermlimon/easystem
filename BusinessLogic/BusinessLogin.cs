@@ -1,5 +1,6 @@
 ﻿using DataAccess;
 using DataAccess.Entities;
+using System;
 using System.Linq;
 
 namespace BusinessLogic
@@ -14,6 +15,14 @@ namespace BusinessLogic
         {
             this._userName = userName;
             this._password = password;
+        }
+
+        public void CreateFirstUser()
+        {
+            User user = new User { UserId = Guid.NewGuid(), UserName = "admin123", UserPassword = "admin123" };
+            Model _context = new Model();
+            _context.Users.Add(user);
+            _context.SaveChanges();
         }
 
         public bool CheckUser()
